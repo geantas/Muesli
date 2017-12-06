@@ -1,0 +1,49 @@
+﻿@model Muesli.ViewModels.CartIndexViewModel
+@{
+    ViewBag.Title = "Muesli madness: Your Cart";
+}
+<h2>Your cart</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-left">Item</th>
+            <th class="text-right">Price per gram</th>
+            <th class="text-right">Quantity</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+
+        {
+            <tr>
+                <td class="text-left">@line.Ingredient.Name</td>
+                <td class="text-right">€ @line.Ingredient.Price.ToString("n")</td>
+                <td class="text-right">@line.Quantity<span> g</span></td>
+                <td class="text-right">€ @((line.Quantity * line.Ingredient.Price).ToString("n"))</td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                {
+                    @Html.Hidden("IngredientId", line.Ingredient.IngredientId)
+                    @Html.HiddenFor(x => x.ReturnUrl)
+                    <input class="btn btn-sm btn-warning" type="submit" value="Remove" />
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.Cart.TotalWeight<span> g</span>
+            </td>
+            <td class="text-right">
+                € @Model.Cart.TotalPrice.ToString("n")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+</div>

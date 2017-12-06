@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Muesli.Models.Ingredient>
+<select>
+    @foreach (var item in Model)
+    {
+        <option>
+            @Html.DisplayFor(modelItem => item.Name)
+        </option>
+    }
+</select>

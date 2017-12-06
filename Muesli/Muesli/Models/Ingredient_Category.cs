@@ -17,5 +17,6 @@ namespace Muesli.Models
 
         public virtual Ingredient Ingredient { get; set; }
         public virtual Category Category { get; set; }
+
     }
 }
