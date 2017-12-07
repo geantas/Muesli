@@ -26,25 +26,6 @@ namespace Muesli.Controllers
             db = new BreakfastContext();
         }
 
-        /*[HttpPost]
-        public RedirectToRouteResult AddToCart(string returnUrl)
-        {
-            var ingredients1 = Request["Ingredients1"];
-            var ingredients2 = Request["Ingredients2"];
-            var ingredients3 = Request["Ingredients3"];
-            var ingredients4 = Request["Ingredients4"];
-            var ingredients5 = Request["Ingredients5"];
-            var quantity = Request["quantity"];
-
-
-            Ingredient ingredient = db.Ingredients.FirstOrDefault(p => p.IngredientId == ingredients1);
-            if (ingredient != null)
-            {
-                GetCart().AddItem(ingredient, quantity);
-            }
-
-            return RedirectToAction("Index", new { controller = returnUrl.Substring(1) });
-        }*/
         public RedirectToRouteResult AddToCart(Cart cart,  int Ingredients1, int quantity, string returnUrl)
         {
             Ingredient ingredient = db.Ingredients.FirstOrDefault(p => p.IngredientId == Ingredients1);
