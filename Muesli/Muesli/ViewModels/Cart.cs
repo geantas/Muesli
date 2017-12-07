@@ -8,6 +8,7 @@ using Muesli.ViewModels;
 
 namespace Muesli.ViewModels
 {
+
     public class Cart
     {
         private List<CartLine> lines = new List<CartLine>();

@@ -1,6 +1,6 @@
 ﻿@model Muesli.ViewModels.CartIndexViewModel
 @{
-    ViewBag.Title = "Muesli madness: Your Cart";
+    ViewBag.Title = "Your Cart";
 }
 <h2>Your cart</h2>
 <table class="table">
@@ -24,12 +24,12 @@
                 <td>
                     @using (Html.BeginForm("RemoveFromCart", "Cart"))
                 {
-                    @Html.Hidden("IngredientId", line.Ingredient.IngredientId)
-                    @Html.HiddenFor(x => x.ReturnUrl)
-                    <input class="btn btn-sm btn-warning" type="submit" value="Remove" />
-                }
-            </td>
-        </tr>
+                        @Html.Hidden("IngredientId", line.Ingredient.IngredientId)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="btn btn-sm btn-warning" type="submit" value="Remove" />
+                    }
+                </td>
+            </tr>
         }
     </tbody>
     <tfoot>
@@ -45,5 +45,6 @@
     </tfoot>
 </table>
 <div class="text-center">
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+    <a class="btn btn-primary" href="/">Continue shopping</a>
+    @Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary" })
 </div>

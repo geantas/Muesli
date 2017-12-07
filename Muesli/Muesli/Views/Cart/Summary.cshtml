@@ -1,0 +1,85 @@
+﻿@model Muesli.ViewModels.Cart
+
+
+<style>
+    #dvContents {
+        display: none; /*hide the div initialy*/
+        width: auto; /*set the width of the div*/
+        max-height: 450px;
+        border: 1px solid black; /*define a styling border*/
+        box-shadow: 0px 0px 7px;
+        position: absolute; /*postition the div in center of screen*/
+        top: 90%;
+        left: 45%;
+        background-color: white;
+        padding: 5px;
+        overflow-y: auto;
+    }
+</style>
+
+<div class="navbar-right" style="padding-right:20px">
+    <input id="btnAddToCart" type="submit" class="btn btn-default navbar-btn" value="Show Cart" />
+</div>
+<div class="navbar-text navbar-right" style="padding-right:20px">
+    
+    @*@Model.Lines.Sum(x => x.Quantity) item(s), *@ @* //this will return the total weight of the items *@
+    @if (Model.Lines.Count == 0)
+    {
+        <b>Your cart is empty</b>
+    }
+    else
+    {
+        <b>Your cart:</b>
+       @Model.Lines.Count <span>item(s),</span>
+    <span>€ </span>@Model.TotalPrice.ToString("n")
+     }
+
+</div>
+<!--<button id="btnAddToCart" type="submit">+ SHOW</button>-->
+<div id="dvContents" style="display: none">
+    <div class="popup-cart-buttons">
+        <input id="continue-shopping" class="btn btn-default btn-sm navbar-btn" value="Continue shopping" />
+        @Html.ActionLink("Go to Cart", "Index", null, new { @class = "btn btn-sm btn-warning" })
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-left">Item</th>
+                <th class="text-right">Price per gram</th>
+                <th class="text-right">Quantity</th>
+                <th class="text-right">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.Lines)
+
+            {
+                <tr>
+                    <td class="text-left">@line.Ingredient.Name</td>
+                    <td class="text-right">€ @line.Ingredient.Price.ToString("n")</td>
+                    <td class="text-right">@line.Quantity<span> g</span></td>
+                    <td class="text-right">€ @((line.Quantity * line.Ingredient.Price).ToString("n"))</td>
+                    <td>
+                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                {
+                            @Html.Hidden("IngredientId", line.Ingredient.IngredientId)
+                            <input class="btn btn-sm btn-warning" type="submit" value="Remove" />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2" class="text-right">Total:</td>
+                <td class="text-right">
+                    @Model.TotalWeight<span> g</span>
+                </td>
+                <td class="text-right">
+                    € @Model.TotalPrice.ToString("n")
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

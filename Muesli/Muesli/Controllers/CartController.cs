@@ -11,7 +11,7 @@ namespace Muesli.Controllers
 
         public ViewResult Index(Cart cart, string returnUrl)
         {
-            return View(new CartIndexViewModel
+            return View(new ViewModels.CartIndexViewModel
             {
                 Cart = cart,                ReturnUrl = returnUrl
             });
@@ -26,7 +26,7 @@ namespace Muesli.Controllers
             db = new BreakfastContext();
         }
 
-        public RedirectToRouteResult AddToCart(Cart cart,  int Ingredients1, int quantity, string returnUrl)
+        public RedirectToRouteResult AddToCart(Cart cart, int Ingredients1, int quantity, string returnUrl)
         {
             Ingredient ingredient = db.Ingredients.FirstOrDefault(p => p.IngredientId == Ingredients1);
             if (ingredient != null)
@@ -96,5 +96,68 @@ namespace Muesli.Controllers
             }
             return cart;
         }
+
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
+
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            if (cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("", "Sorry, your cart is empty!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                /*Customer customer = new Customer
+                {
+                    Firstname = shippingDetails.Firstname,
+                    Lastname = shippingDetails.Lastname,
+                    Address = shippingDetails.Address,
+                    Zip = shippingDetails.Zip,
+                    Email = shippingDetails.Email
+                };
+
+                if (db.Customers.Any(c => c.Firstname == customer.Firstname && c.Lastname == customer.Lastname && c.Email == customer.Email))
+                {
+                    customer = db.Customers.Where(c => c.Firstname == customer.Firstname && c.Lastname == customer.Lastname && 
+                    c.Email == customer.Email).First();
+                    customer.Address = shippingDetails.Address;
+                    customer.Zip = shippingDetails.Zip;
+                    // ensure update instead of insert
+                    db.Entry(customer).State = EntityState.Modified;
+                }
+
+                Invoice invoice = new Invoice(DateTime.Now, customer);
+
+                foreach (CartLine cartline in cart.Lines)
+                {
+                    OrderItem orderItem = new OrderItem(cartline.Product, cartline.Quantity);
+                    // price when item went into the basket
+                    orderItem.Price = cartline.Price;
+                    orderItem.ProductId = cartline.Product.ProductId;
+                    orderItem.Product = null;
+                    invoice.OrderItems.Add(orderItem);
+                }
+                db.Invoices.Add(invoice);*/
+
+
+               // db.SaveChanges();
+
+                // order processing logic
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
+        }
     }
 }
