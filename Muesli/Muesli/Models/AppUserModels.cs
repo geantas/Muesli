@@ -8,7 +8,8 @@ namespace Muesli.Models
 {
     public class AppUser : IdentityUser
     {
-        // Здесь будут указываться дополнительные свойства
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
 
