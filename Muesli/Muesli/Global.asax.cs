@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Muesli.Infrastructure.Binders;
+using Muesli.ViewModels;
+using Muesli.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +19,9 @@ namespace Muesli
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Add custom model binder
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
         }
     }
 }
