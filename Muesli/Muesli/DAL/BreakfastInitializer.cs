@@ -45,7 +45,7 @@ namespace Muesli.DAL
                 new Ingredient{Name="Pumpkin",Price=0.30m},
                 new Ingredient{Name="Sunflower",Price=0.31m},
                 new Ingredient{Name="Poppy",Price=0.32m},
-                new Ingredient{Name="Canabis",Price=0.33m},
+                new Ingredient{Name="Cannabis",Price=0.33m},
                 new Ingredient{Name="Cinnamon",Price=0.34m}, // others category: 3 items
                 new Ingredient{Name="Chocolate",Price=0.35m},
                 new Ingredient{Name="Ginger",Price=0.36m} // total:  36 items
