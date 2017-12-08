@@ -200,14 +200,14 @@
         });
 
         $('select').on('change', function () {
-            if ($(this).val() != "null") {
+            if ($(this).val() != 0) {
                 var selecteditem = $(this).val();
                 var tempprice = selecteditem * 5 / 100;
                 $(this).parent().find('.selected').hide();
+                $(this).parent().find('.selected').show();
                 $(this).parent().children().find('input:first').val(5);
                 $(this).parent().children().children("span").children("span").text(5);
                 $(this).parent().children().children("span").children("span.priceresult").text("€ " + tempprice);
-                $(this).parent().find('.selected').show();
             } else {
                 $(this).parent().find('.selected').hide();
             }
