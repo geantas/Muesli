@@ -9,7 +9,7 @@ namespace Muesli.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Muesli.DAL.BreakfastContext context)

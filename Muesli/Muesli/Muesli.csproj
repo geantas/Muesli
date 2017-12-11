@@ -196,6 +196,18 @@
     </Compile>
     <Compile Include="Infrastructure\AppUserManager.cs" />
     <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
+    <Compile Include="Migrations\201712111945314_initialcreate.cs" />
+    <Compile Include="Migrations\201712111945314_initialcreate.Designer.cs">
+      <DependentUpon>201712111945314_initialcreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712111954596_sendtry.cs" />
+    <Compile Include="Migrations\201712111954596_sendtry.Designer.cs">
+      <DependentUpon>201712111954596_sendtry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712112004508_Initial.cs" />
+    <Compile Include="Migrations\201712112004508_Initial.Designer.cs">
+      <DependentUpon>201712112004508_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUserModels.cs" />
@@ -314,6 +326,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712111945314_initialcreate.resx">
+      <DependentUpon>201712111945314_initialcreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712111954596_sendtry.resx">
+      <DependentUpon>201712111954596_sendtry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712112004508_Initial.resx">
+      <DependentUpon>201712112004508_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

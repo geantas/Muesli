@@ -10,10 +10,8 @@ namespace Muesli.Models
 
     public class User_Subscription
     {
-
         [Key]
         public int User_Subscription_Id { get; set; }
-
         public int SubscriptionId { get; set; }
         public int UserId { get; set; }
     

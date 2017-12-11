@@ -7,8 +7,7 @@ using Muesli.Models;
 
 namespace Muesli.DAL
 {
-    public class BreakfastInitializer : System.Data.Entity.
-   DropCreateDatabaseIfModelChanges<BreakfastContext>
+    public class BreakfastInitializer : DropCreateDatabaseAlways<BreakfastContext>
     {
         protected override void Seed(BreakfastContext context)
         {
@@ -85,20 +84,20 @@ namespace Muesli.DAL
                 new Ingredient_Category{IngredientId=17,CategoryId=02},
                 new Ingredient_Category{IngredientId=18,CategoryId=02},
                 new Ingredient_Category{IngredientId=19,CategoryId=02},
-                new Ingredient_Category{IngredientId=20,CategoryId=02},// iki cia
+                new Ingredient_Category{IngredientId=20,CategoryId=02}, // iki cia
                 new Ingredient_Category{IngredientId=21,CategoryId=03},
                 new Ingredient_Category{IngredientId=22,CategoryId=03},
                 new Ingredient_Category{IngredientId=23,CategoryId=03},
                 new Ingredient_Category{IngredientId=24,CategoryId=03},
                 new Ingredient_Category{IngredientId=25,CategoryId=03},
-                new Ingredient_Category{IngredientId=26,CategoryId=03},// iki cia
+                new Ingredient_Category{IngredientId=26,CategoryId=03}, // iki cia
                 new Ingredient_Category{IngredientId=27,CategoryId=04},
                 new Ingredient_Category{IngredientId=28,CategoryId=04},
                 new Ingredient_Category{IngredientId=29,CategoryId=04},
                 new Ingredient_Category{IngredientId=30,CategoryId=04},
                 new Ingredient_Category{IngredientId=31,CategoryId=04},
                 new Ingredient_Category{IngredientId=32,CategoryId=04},
-                new Ingredient_Category{IngredientId=33,CategoryId=04},// iki cia
+                new Ingredient_Category{IngredientId=33,CategoryId=04}, // iki cia
                 new Ingredient_Category{IngredientId=34,CategoryId=05},
                 new Ingredient_Category{IngredientId=35,CategoryId=05},
                 new Ingredient_Category{IngredientId=36,CategoryId=05}
@@ -109,30 +108,56 @@ namespace Muesli.DAL
 
             var users = new List<User>
             {
-                new User{UserId=1,Username="user1",FirstName="UserFirstName1",LastName="UserLastName1"},
-                new User{UserId=2,Username="user2",FirstName="UserFirstName2",LastName="UserLastName2"},
-                new User{UserId=3,Username="user3",FirstName="UserFirstName3",LastName="UserLastName3"},
-                new User{UserId=4,Username="user4",FirstName="UserFirstName4",LastName="UserLastName4"},
-                new User{UserId=5,Username="user5",FirstName="UserFirstName5",LastName="UserLastName5"},
-                new User{UserId=6,Username="user6",FirstName="UserFirstName6",LastName="UserLastName6"}, 
-                new User{UserId=7,Username="user7",FirstName="UserFirstName7",LastName="UserLastName7"},
-                new User{UserId=8,Username="user8",FirstName="UserFirstName8",LastName="UserLastName8"},
-                new User{UserId=9,Username="user9",FirstName="UserFirstName9",LastName="UserLastName9"}
+                new User{Username="user1",FirstName="UserFirstName1",LastName="UserLastName1",Email="email1@gmail.com"},
+                new User{Username="user2",FirstName="UserFirstName2",LastName="UserLastName2",Email="email2@gmail.com"},
+                new User{Username="user3",FirstName="UserFirstName3",LastName="UserLastName3",Email="email3@gmail.com"},
+                new User{Username="user4",FirstName="UserFirstName4",LastName="UserLastName4",Email="email4@gmail.com"},
+                new User{Username="user5",FirstName="UserFirstName5",LastName="UserLastName5",Email="email5@gmail.com"},
+                new User{Username="user6",FirstName="UserFirstName6",LastName="UserLastName6",Email="email6@gmail.com"}, 
+                new User{Username="user7",FirstName="UserFirstName7",LastName="UserLastName7",Email="email7@gmail.com"},
+                new User{Username="user8",FirstName="UserFirstName8",LastName="UserLastName8",Email="email8@gmail.com"},
+                new User{Username="user9",FirstName="UserFirstName9",LastName="UserLastName9",Email="email9@gmail.com"}
             };
             users.ForEach(s => context.Users.Add(s));
             context.SaveChanges();
 
+            var subscriptions = new List<Subscription>
+            {
+                new Subscription{Date_created=new DateTime(2016,01,12),Delivery_frequency=60,Price=13.00m},
+                new Subscription{Date_created=new DateTime(2017,02,13),Delivery_frequency=7,Price=14.00m},
+                new Subscription{Date_created=new DateTime(2017,03,14),Delivery_frequency=90,Price=18.00m},
+                new Subscription{Date_created=new DateTime(2017,04,11),Delivery_frequency=10,Price=15.00m},
+                new Subscription{Date_created=new DateTime(2017,05,10),Delivery_frequency=45,Price=19.00m},
+                new Subscription{Date_created=new DateTime(2016,06,11),Delivery_frequency=90,Price=12.00m},
+                new Subscription{Date_created=new DateTime(2016,07,12),Delivery_frequency=100,Price=15.00m},
+                new Subscription{Date_created=new DateTime(2017,08,13),Delivery_frequency=66,Price=20.00m},
+                new Subscription{Date_created=new DateTime(2017,09,10),Delivery_frequency=55,Price=21.00m},
+                new Subscription{Date_created=new DateTime(2015,10,11),Delivery_frequency=44,Price=12.00m},
+                new Subscription{Date_created=new DateTime(2016,11,12),Delivery_frequency=33,Price=13.00m},
+                new Subscription{Date_created=new DateTime(2016,12,13),Delivery_frequency=33,Price=14.00m},
+                new Subscription{Date_created=new DateTime(2017,10,10),Delivery_frequency=22,Price=15.00m},
+                new Subscription{Date_created=new DateTime(2014,03,11),Delivery_frequency=12,Price=16.00m},
+                new Subscription{Date_created=new DateTime(2017,02,12),Delivery_frequency=23,Price=17.00m},
+                new Subscription{Date_created=new DateTime(2017,06,13),Delivery_frequency=43,Price=18.00m},
+                new Subscription{Date_created=new DateTime(2017,05,10),Delivery_frequency=21,Price=19.00m},
+                new Subscription{Date_created=new DateTime(2017,01,11),Delivery_frequency=21,Price=20.00m},
+                new Subscription{Date_created=new DateTime(2017,03,12),Delivery_frequency=28,Price=21.00m},
+                new Subscription{Date_created=new DateTime(2017,12,13),Delivery_frequency=30,Price=22.00m}
+            };
+            subscriptions.ForEach(s => context.Subscriptions.Add(s));
+            context.SaveChanges();
+
             var user_subscriptions = new List<User_Subscription>
             {
-                new User_Subscription{SubscriptionId=01,UserId=1},
-                new User_Subscription{SubscriptionId=02,UserId=2},
-                new User_Subscription{SubscriptionId=03,UserId=1},
-                new User_Subscription{SubscriptionId=04,UserId=3},
-                new User_Subscription{SubscriptionId=05,UserId=4},
-                new User_Subscription{SubscriptionId=06,UserId=5},
-                new User_Subscription{SubscriptionId=07,UserId=6},
-                new User_Subscription{SubscriptionId=08,UserId=6},
-                new User_Subscription{SubscriptionId=09,UserId=6},
+                new User_Subscription{SubscriptionId=1,UserId=1},
+                new User_Subscription{SubscriptionId=2,UserId=2},
+                new User_Subscription{SubscriptionId=3,UserId=1},
+                new User_Subscription{SubscriptionId=4,UserId=3},
+                new User_Subscription{SubscriptionId=5,UserId=4},
+                new User_Subscription{SubscriptionId=6,UserId=5},
+                new User_Subscription{SubscriptionId=7,UserId=6},
+                new User_Subscription{SubscriptionId=8,UserId=6},
+                new User_Subscription{SubscriptionId=9,UserId=6},
                 new User_Subscription{SubscriptionId=10,UserId=7},
                 new User_Subscription{SubscriptionId=11,UserId=7},
                 new User_Subscription{SubscriptionId=12,UserId=1},
@@ -147,41 +172,6 @@ namespace Muesli.DAL
             };
             user_subscriptions.ForEach(s => context.User_Subscriptions.Add(s));
             context.SaveChanges();
-
-            var subscriptions = new List<Subscription>
-            {
-                new Subscription{SubscriptionId=01,Date_created=new DateTime(2016, 01, 12),Delivery_frequency=60,Price=13.00m},
-                new Subscription{SubscriptionId=02,Date_created=new DateTime(2017, 02, 13),Delivery_frequency=7,Price=14.00m},
-                new Subscription{SubscriptionId=03,Date_created=new DateTime(2017, 03, 14),Delivery_frequency=90,Price=18.00m},
-                new Subscription{SubscriptionId=04,Date_created=new DateTime(2017, 04, 11),Delivery_frequency=10,Price=15.00m},
-                new Subscription{SubscriptionId=05,Date_created=new DateTime(2017, 05, 10),Delivery_frequency=45,Price=19.00m},
-                new Subscription{SubscriptionId=06,Date_created=new DateTime(2016, 06, 11),Delivery_frequency=90,Price=12.00m},
-                new Subscription{SubscriptionId=07,Date_created=new DateTime(2016, 07, 12),Delivery_frequency=100,Price=15.00m},
-                new Subscription{SubscriptionId=08,Date_created=new DateTime(2017, 08, 13),Delivery_frequency=66,Price=20.00m},
-                new Subscription{SubscriptionId=09,Date_created=new DateTime(2017, 09, 10),Delivery_frequency=55,Price=21.00m},
-                new Subscription{SubscriptionId=10,Date_created=new DateTime(2015, 10, 11),Delivery_frequency=44,Price=12.00m},
-                new Subscription{SubscriptionId=11,Date_created=new DateTime(2016, 11, 12),Delivery_frequency=33,Price=13.00m},
-                new Subscription{SubscriptionId=12,Date_created=new DateTime(2016, 12, 13),Delivery_frequency=33,Price=14.00m},
-                new Subscription{SubscriptionId=13,Date_created=new DateTime(2017, 10, 10),Delivery_frequency=22,Price=15.00m},
-                new Subscription{SubscriptionId=14,Date_created=new DateTime(2014, 03, 11),Delivery_frequency=12,Price=16.00m},
-                new Subscription{SubscriptionId=15,Date_created=new DateTime(2017, 02, 12),Delivery_frequency=23,Price=17.00m},
-                new Subscription{SubscriptionId=16,Date_created=new DateTime(2017, 06, 13),Delivery_frequency=43,Price=18.00m},
-                new Subscription{SubscriptionId=17,Date_created=new DateTime(2017, 05, 10),Delivery_frequency=21,Price=19.00m},
-                new Subscription{SubscriptionId=18,Date_created=new DateTime(2017, 01, 11),Delivery_frequency=21,Price=20.00m},
-                new Subscription{SubscriptionId=19,Date_created=new DateTime(2017, 03, 12),Delivery_frequency=28,Price=21.00m},
-                new Subscription{SubscriptionId=20,Date_created=new DateTime(2017, 12, 13),Delivery_frequency=30,Price=22.00m}
-            };
-            subscriptions.ForEach(s => context.Subscriptions.Add(s));
-            context.SaveChanges();
-
-
-            /*      
-                    public int SubscriptionId { get; set; }
-                    public DateTime Date_created { get; set; }
-                    public int Delivery_frequency { get; set; }
-                    public decimal Price { get; set; }
-            */
-
         }
     }
 }
