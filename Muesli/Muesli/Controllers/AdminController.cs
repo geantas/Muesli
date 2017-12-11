@@ -10,7 +10,7 @@ namespace Muesli.Controllers
 {
 
     //[Authorize(Roles = "Administrators")]
-    //[AllowAnonymous]
+    [AllowAnonymous]
     [Authorize]
     public class AdminController : Controller
     {

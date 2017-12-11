@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="images/2.jpg" />
     <title>@ViewBag.Title - Muesli madness</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
@@ -29,6 +29,7 @@
                     <li>@Html.ActionLink("Order", "Index", "Order")</li>
                     <li>@Html.ActionLink("Our range", "Index", "Range")</li>
                     <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary" })</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.Action("Summary", "Cart")</li>

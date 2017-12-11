@@ -18,6 +18,10 @@ namespace Muesli.DAL
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Ingredient_Category> Ingredient_Categories { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<User_Subscription> User_Subscriptions { get; set; }
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
