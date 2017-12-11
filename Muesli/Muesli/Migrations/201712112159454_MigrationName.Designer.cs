@@ -7,18 +7,18 @@ namespace Muesli.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class sendtry : IMigrationMetadata
+    public sealed partial class MigrationName : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(sendtry));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MigrationName));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712111954596_sendtry"; }
+            get { return "201712112159454_MigrationName"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

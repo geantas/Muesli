@@ -188,6 +188,7 @@
     <Compile Include="Controllers\IngredientController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\BreakfastContext.cs" />
     <Compile Include="DAL\BreakfastInitializer.cs" />
@@ -196,17 +197,13 @@
     </Compile>
     <Compile Include="Infrastructure\AppUserManager.cs" />
     <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
-    <Compile Include="Migrations\201712111945314_initialcreate.cs" />
-    <Compile Include="Migrations\201712111945314_initialcreate.Designer.cs">
-      <DependentUpon>201712111945314_initialcreate.cs</DependentUpon>
+    <Compile Include="Migrations\201712112159454_MigrationName.cs" />
+    <Compile Include="Migrations\201712112159454_MigrationName.Designer.cs">
+      <DependentUpon>201712112159454_MigrationName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712111954596_sendtry.cs" />
-    <Compile Include="Migrations\201712111954596_sendtry.Designer.cs">
-      <DependentUpon>201712111954596_sendtry.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712112004508_Initial.cs" />
-    <Compile Include="Migrations\201712112004508_Initial.Designer.cs">
-      <DependentUpon>201712112004508_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201712112219083_MigrationName1.cs" />
+    <Compile Include="Migrations\201712112219083_MigrationName1.Designer.cs">
+      <DependentUpon>201712112219083_MigrationName1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
@@ -258,11 +255,6 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Views\Ingredient\Create.cshtml" />
-    <Content Include="Views\Ingredient\Delete.cshtml" />
-    <Content Include="Views\Ingredient\Details.cshtml" />
-    <Content Include="Views\Ingredient\Edit.cshtml" />
-    <Content Include="Views\Ingredient\Index.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Users\Index.cshtml" />
@@ -281,6 +273,16 @@
     <Content Include="Views\Subscription\Details.cshtml" />
     <Content Include="Views\Subscription\Edit.cshtml" />
     <Content Include="Views\Subscription\Index.cshtml" />
+    <Content Include="Views\Ingredient\Create.cshtml" />
+    <Content Include="Views\Ingredient\Delete.cshtml" />
+    <Content Include="Views\Ingredient\Details.cshtml" />
+    <Content Include="Views\Ingredient\Edit.cshtml" />
+    <Content Include="Views\Ingredient\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -328,14 +330,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712111945314_initialcreate.resx">
-      <DependentUpon>201712111945314_initialcreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712112159454_MigrationName.resx">
+      <DependentUpon>201712112159454_MigrationName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712111954596_sendtry.resx">
-      <DependentUpon>201712111954596_sendtry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712112004508_Initial.resx">
-      <DependentUpon>201712112004508_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712112219083_MigrationName1.resx">
+      <DependentUpon>201712112219083_MigrationName1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

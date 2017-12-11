@@ -7,11 +7,11 @@ using Muesli.Models;
 
 namespace Muesli.DAL
 {
-    public class BreakfastInitializer : DropCreateDatabaseAlways<BreakfastContext>
+    public class BreakfastInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<BreakfastContext>
     {
-        protected override void Seed(BreakfastContext context)
+        protected override void Seed(Muesli.DAL.BreakfastContext context)
         {
-            var ingredients = new List<Ingredient> {
+       /*     var ingredients = new List<Ingredient> {
                 new Ingredient{Name="Oat",Price=0.01m}, // base category: 6 items
                 new Ingredient{Name="Buckwheat",Price=0.02m},
                 new Ingredient{Name="Wheat",Price=0.03m},
@@ -123,26 +123,26 @@ namespace Muesli.DAL
 
             var subscriptions = new List<Subscription>
             {
-                new Subscription{Date_created=new DateTime(2016,01,12),Delivery_frequency=60,Price=13.00m},
-                new Subscription{Date_created=new DateTime(2017,02,13),Delivery_frequency=7,Price=14.00m},
-                new Subscription{Date_created=new DateTime(2017,03,14),Delivery_frequency=90,Price=18.00m},
-                new Subscription{Date_created=new DateTime(2017,04,11),Delivery_frequency=10,Price=15.00m},
-                new Subscription{Date_created=new DateTime(2017,05,10),Delivery_frequency=45,Price=19.00m},
-                new Subscription{Date_created=new DateTime(2016,06,11),Delivery_frequency=90,Price=12.00m},
-                new Subscription{Date_created=new DateTime(2016,07,12),Delivery_frequency=100,Price=15.00m},
-                new Subscription{Date_created=new DateTime(2017,08,13),Delivery_frequency=66,Price=20.00m},
-                new Subscription{Date_created=new DateTime(2017,09,10),Delivery_frequency=55,Price=21.00m},
-                new Subscription{Date_created=new DateTime(2015,10,11),Delivery_frequency=44,Price=12.00m},
-                new Subscription{Date_created=new DateTime(2016,11,12),Delivery_frequency=33,Price=13.00m},
-                new Subscription{Date_created=new DateTime(2016,12,13),Delivery_frequency=33,Price=14.00m},
-                new Subscription{Date_created=new DateTime(2017,10,10),Delivery_frequency=22,Price=15.00m},
-                new Subscription{Date_created=new DateTime(2014,03,11),Delivery_frequency=12,Price=16.00m},
-                new Subscription{Date_created=new DateTime(2017,02,12),Delivery_frequency=23,Price=17.00m},
-                new Subscription{Date_created=new DateTime(2017,06,13),Delivery_frequency=43,Price=18.00m},
-                new Subscription{Date_created=new DateTime(2017,05,10),Delivery_frequency=21,Price=19.00m},
-                new Subscription{Date_created=new DateTime(2017,01,11),Delivery_frequency=21,Price=20.00m},
-                new Subscription{Date_created=new DateTime(2017,03,12),Delivery_frequency=28,Price=21.00m},
-                new Subscription{Date_created=new DateTime(2017,12,13),Delivery_frequency=30,Price=22.00m}
+                new Subscription{SubscriptionId=1,Date_created=new DateTime(2016,01,12),Delivery_frequency=60,Price=13.00m},
+                new Subscription{SubscriptionId=2,Date_created=new DateTime(2017,02,13),Delivery_frequency=7,Price=14.00m},
+                new Subscription{SubscriptionId=3,Date_created=new DateTime(2017,03,14),Delivery_frequency=90,Price=18.00m},
+                new Subscription{SubscriptionId=4,Date_created=new DateTime(2017,04,11),Delivery_frequency=10,Price=15.00m},
+                new Subscription{SubscriptionId=5,Date_created=new DateTime(2017,05,10),Delivery_frequency=45,Price=19.00m},
+                new Subscription{SubscriptionId=6,Date_created=new DateTime(2016,06,11),Delivery_frequency=90,Price=12.00m},
+                new Subscription{SubscriptionId=7,Date_created=new DateTime(2016,07,12),Delivery_frequency=100,Price=15.00m},
+                new Subscription{SubscriptionId=8,Date_created=new DateTime(2017,08,13),Delivery_frequency=66,Price=20.00m},
+                new Subscription{SubscriptionId=9,Date_created=new DateTime(2017,09,10),Delivery_frequency=55,Price=21.00m},
+                new Subscription{SubscriptionId=10,Date_created=new DateTime(2015,10,11),Delivery_frequency=44,Price=12.00m},
+                new Subscription{SubscriptionId=11,Date_created=new DateTime(2016,11,12),Delivery_frequency=33,Price=13.00m},
+                new Subscription{SubscriptionId=12,Date_created=new DateTime(2016,12,13),Delivery_frequency=33,Price=14.00m},
+                new Subscription{SubscriptionId=13,Date_created=new DateTime(2017,10,10),Delivery_frequency=22,Price=15.00m},
+                new Subscription{SubscriptionId=14,Date_created=new DateTime(2014,03,11),Delivery_frequency=12,Price=16.00m},
+                new Subscription{SubscriptionId=15,Date_created=new DateTime(2017,02,12),Delivery_frequency=23,Price=17.00m},
+                new Subscription{SubscriptionId=16,Date_created=new DateTime(2017,06,13),Delivery_frequency=43,Price=18.00m},
+                new Subscription{SubscriptionId=17,Date_created=new DateTime(2017,05,10),Delivery_frequency=21,Price=19.00m},
+                new Subscription{SubscriptionId=18,Date_created=new DateTime(2017,01,11),Delivery_frequency=21,Price=20.00m},
+                new Subscription{SubscriptionId=19,Date_created=new DateTime(2017,03,12),Delivery_frequency=28,Price=21.00m},
+                new Subscription{SubscriptionId=20,Date_created=new DateTime(2017,12,13),Delivery_frequency=30,Price=22.00m}
             };
             subscriptions.ForEach(s => context.Subscriptions.Add(s));
             context.SaveChanges();
@@ -171,7 +171,7 @@ namespace Muesli.DAL
                 new User_Subscription{SubscriptionId=20,UserId=9}
             };
             user_subscriptions.ForEach(s => context.User_Subscriptions.Add(s));
-            context.SaveChanges();
+            context.SaveChanges();*/
         }
     }
 }

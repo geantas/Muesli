@@ -17,23 +17,13 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt>
-            Category <!--@Html.DisplayNameFor(model => model.Ingredient_Categories) -->
-        </dt>
-        <dd>
-            @foreach (var item in Model.Ingredient_Categories)
-            {
-                @Html.DisplayFor(modelItem => item.Category.CatName)
-            }
-        </dd>
-
 
         <dt>
             @Html.DisplayNameFor(model => model.Price)
         </dt>
 
         <dd>
-            €@Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Price)
         </dd>
 
     </dl>
