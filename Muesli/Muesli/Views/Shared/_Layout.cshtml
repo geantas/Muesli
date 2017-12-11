@@ -1,6 +1,4 @@
-﻿@model Muesli.Models.LoginModel
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -14,8 +12,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-
 
 </head>
 <body>
@@ -40,7 +36,7 @@
                 </li>
                 <li>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
                         Launch demo modal
                     </button>
                 </li>
@@ -56,111 +52,27 @@
 
 
     <div class="container">
-        <!-- Content here -->
+    <!-- Content here -->
 
+        @RenderBody()
 
-        <div class="body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Muesli madness</p>
-            </footer>
-        </div>
-
+        <hr />
 
     </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
 
+            <p>&copy; @DateTime.Now.Year - Muesli madness</p>
 
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Please Sign In</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <form>
-                                    <h3>Registered user</h3>
-                                    
-                                    @Html.ValidationSummary()
-                                    @using (Html.BeginForm())
-                                    {
-                                        @Html.AntiForgeryToken();
-                                        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
-                                    <div class="form-group">
-                                        <label for="UserName">Username</label>
-                                        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
-                                        <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="usernameHelp" placeholder="Enter username"> -->
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Password">Password</label>
-                                        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
-                                        <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
-                                    </div>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input">
-                                            Remember me
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Sign In</button>
-                                    }
-                                    <div>
-                                        <small id="emailHelp" class="form-text text-muted"><a href="#">Forgot your username or password?</small>
-                                        <small id="emailHelp" class="form-text text-muted"><a href="#">Don't have an account yet? Create it now.</a></small>
-                                        
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <h3>Single order lookup</h3>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Order number</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Email address</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Continue</button>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <!-- 
-                    <div class="row">
-                        <div class="col-6">
-                            <small id="emailHelp" class="form-text text-muted"><a href="#">Forgot your password?</small>
-                            <small id="emailHelp" class="form-text text-muted"><a href="#">Don't have an account yet? Create it now.</a></small>
-                        </div>
-                        <div class="col-6">
-                        -->
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <!-- </div>
-                    </div> -->
-                </div>
-    </div>
-
+    <!-- Partial view -->
+    @{
+        Html.RenderPartial("_Signin");
+    }
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
