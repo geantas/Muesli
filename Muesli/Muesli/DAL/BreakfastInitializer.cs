@@ -7,11 +7,11 @@ using Muesli.Models;
 
 namespace Muesli.DAL
 {
-    public class BreakfastInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<BreakfastContext>
+    public class BreakfastInitializer : DropCreateDatabaseIfModelChanges<BreakfastContext>
     {
         protected override void Seed(Muesli.DAL.BreakfastContext context)
         {
-       /*     var ingredients = new List<Ingredient> {
+            var ingredients = new List<Ingredient> {
                 new Ingredient{Name="Oat",Price=0.01m}, // base category: 6 items
                 new Ingredient{Name="Buckwheat",Price=0.02m},
                 new Ingredient{Name="Wheat",Price=0.03m},
@@ -48,21 +48,19 @@ namespace Muesli.DAL
                 new Ingredient{Name="Cinnamon",Price=0.34m}, // others category: 3 items
                 new Ingredient{Name="Chocolate",Price=0.35m},
                 new Ingredient{Name="Ginger",Price=0.36m} // total:  36 items
-                // new Ingredient{Name="Nino",LastName="Olivetto",EnrollmentDate=DateTime.Parse("2005-09-01")}
             };
             ingredients.ForEach(s => context.Ingredients.Add(s));
             context.SaveChanges();
 
-            var categories = new List<Category> {
-                new Category{CategoryId=1,CatName="Base"},
+          /*  var categories = new List<Category> {
+                new Category{CatName="Base"},
                 new Category{CategoryId=2,CatName="Fruits"},
                 new Category{CategoryId=3,CatName="Nuts"},
                 new Category{CategoryId=4,CatName="Seeds"},
                 new Category{CategoryId=5,CatName="Others"}
-                // new Course{CourseID=2042,Title="Literature",Credits=4,}
             };
             categories.ForEach(s => context.Categories.Add(s));
-            context.SaveChanges();
+            context.SaveChanges();*/
 
             var ingredient_categories = new List<Ingredient_Category>{
                 new Ingredient_Category{IngredientId=1,CategoryId=01},
@@ -101,26 +99,29 @@ namespace Muesli.DAL
                 new Ingredient_Category{IngredientId=34,CategoryId=05},
                 new Ingredient_Category{IngredientId=35,CategoryId=05},
                 new Ingredient_Category{IngredientId=36,CategoryId=05}
-                // new Ingredient_Category{StudentID=7,CourseID=3141,Grade=Grade.A}
             };
             ingredient_categories.ForEach(s => context.Ingredient_Categories.Add(s));
             context.SaveChanges();
+            
 
-            var users = new List<User>
-            {
-                new User{Username="user1",FirstName="UserFirstName1",LastName="UserLastName1",Email="email1@gmail.com"},
-                new User{Username="user2",FirstName="UserFirstName2",LastName="UserLastName2",Email="email2@gmail.com"},
-                new User{Username="user3",FirstName="UserFirstName3",LastName="UserLastName3",Email="email3@gmail.com"},
-                new User{Username="user4",FirstName="UserFirstName4",LastName="UserLastName4",Email="email4@gmail.com"},
-                new User{Username="user5",FirstName="UserFirstName5",LastName="UserLastName5",Email="email5@gmail.com"},
-                new User{Username="user6",FirstName="UserFirstName6",LastName="UserLastName6",Email="email6@gmail.com"}, 
-                new User{Username="user7",FirstName="UserFirstName7",LastName="UserLastName7",Email="email7@gmail.com"},
-                new User{Username="user8",FirstName="UserFirstName8",LastName="UserLastName8",Email="email8@gmail.com"},
-                new User{Username="user9",FirstName="UserFirstName9",LastName="UserLastName9",Email="email9@gmail.com"}
-            };
-            users.ForEach(s => context.Users.Add(s));
-            context.SaveChanges();
 
+
+
+           /* var users = new List<User>
+              {
+                  new User{Username="user1",FirstName="UserFirstName1",LastName="UserLastName1",Email="email1@gmail.com",Password="magic6",Address="Fake street 1",ZipCode="8001",City="Aarhus"},
+                  new User{Username="user2",FirstName="UserFirstName2",LastName="UserLastName2",Email="email2@gmail.com",Password="magic6",Address="Fake street 2",ZipCode="8002",City="Aarhus"},
+                  new User{Username="user3",FirstName="UserFirstName3",LastName="UserLastName3",Email="email3@gmail.com",Password="magic6",Address="Fake street 3",ZipCode="8003",City="Aarhus"},
+                  new User{Username="user4",FirstName="UserFirstName4",LastName="UserLastName4",Email="email4@gmail.com",Password="magic6",Address="Fake street 4",ZipCode="8004",City="Aarhus"},
+                  new User{Username="user5",FirstName="UserFirstName5",LastName="UserLastName5",Email="email5@gmail.com",Password="magic6",Address="Fake street 5",ZipCode="8005",City="Aarhus"},
+                  new User{Username="user6",FirstName="UserFirstName6",LastName="UserLastName6",Email="email6@gmail.com",Password="magic6",Address="Fake street 6",ZipCode="8006",City="Aarhus"},
+                  new User{Username="user7",FirstName="UserFirstName7",LastName="UserLastName7",Email="email7@gmail.com",Password="magic6",Address="Fake street 7",ZipCode="8007",City="Aarhus"},
+                  new User{Username="user8",FirstName="UserFirstName8",LastName="UserLastName8",Email="email8@gmail.com",Password="magic6",Address="Fake street 8",ZipCode="8008",City="Aarhus"},
+                  new User{Username="user9",FirstName="UserFirstName9",LastName="UserLastName9",Email="email9@gmail.com",Password="magic6",Address="Fake street 9",ZipCode="8009",City="Aarhus"}
+              };
+              users.ForEach(s => context.Users.Add(s));
+              context.SaveChanges();*/
+            
             var subscriptions = new List<Subscription>
             {
                 new Subscription{SubscriptionId=1,Date_created=new DateTime(2016,01,12),Delivery_frequency=60,Price=13.00m},
@@ -171,7 +172,8 @@ namespace Muesli.DAL
                 new User_Subscription{SubscriptionId=20,UserId=9}
             };
             user_subscriptions.ForEach(s => context.User_Subscriptions.Add(s));
-            context.SaveChanges();*/
+            context.SaveChanges();
+          
         }
     }
 }

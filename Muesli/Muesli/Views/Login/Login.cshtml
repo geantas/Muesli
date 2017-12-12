@@ -1,0 +1,24 @@
+﻿@model Muesli.Models.User
+@{
+    ViewBag.Title = "Login - Muesli Madness";
+}
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <legend>Login</legend>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <p>
+            @Html.LabelFor(a => a.Username)
+            @Html.TextBoxFor(a => a.Username)
+        </p>
+        <p>
+            @Html.LabelFor(a => a.Password)  
+            @Html.PasswordFor(a => a.Password)
+        </p>
+        <p>
+            <label></label>
+            <input type="submit" value="Login" />
+        </p>
+}  

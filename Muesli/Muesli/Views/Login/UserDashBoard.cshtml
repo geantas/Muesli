@@ -1,0 +1,51 @@
+﻿@model Muesli.Models.User
+
+@{
+    ViewBag.Title = "Account - Muesli Madness";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserDashBoard</title>
+</head>
+<body>
+
+    @if (Session["Username"] != null)
+    {
+     <span>Oooooooooo! Privet, </span><strong>@Session["Username"].ToString()</strong>
+    }
+    <br />
+    <br />
+    <div>Acount details:</div>
+    <br />
+    <p>
+        <strong>Username: </strong>@Session["UserID"].ToString()
+    </p>
+    <p>
+        <strong>Username: </strong>@Session["Username"].ToString()
+    </p>
+    <p>
+        <strong>Firstname: </strong>@Session["Firstname"].ToString()
+    </p>
+    <p>
+        <strong>Lastname: </strong>@Session["Lastname"].ToString()
+    </p>
+    <p>
+        <strong>E-mail: </strong>@Session["Email"].ToString()
+    </p>
+    <p>
+        <strong>Address: </strong>@Session["Address"].ToString()
+    </p>
+    <p>
+        <strong>Zip: </strong>@Session["ZipCode"].ToString()
+    </p>
+    <p>
+        <strong>City: </strong>@Session["City"].ToString()
+    </p>
+
+
+</body>
+</html>
