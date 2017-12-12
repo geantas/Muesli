@@ -2,26 +2,23 @@
 
 
 <style>
-    #dvContents {
-        display: none; /*hide the div initialy*/
-        width: auto; /*set the width of the div*/
-        max-height: 450px;
-        border: 1px solid black; /*define a styling border*/
-        box-shadow: 0px 0px 7px;
-        position: absolute; /*postition the div in center of screen*/
-        top: 90%;
-        left: -65%;
-        background-color: white;
-        padding: 5px;
-        overflow-y: auto;
+    /*#dvContents {
+        display: none; /*hide the div initialy
+    width: auto; /*set the width of the div
+    max-height: 450px; border: 1px solid black; /*define a styling border
+    box-shadow: 0px 0px 7px; position: absolute; /*postition the div in center of screen
+    top: 90%; left: -65%; background-color: white; padding: 5px; overflow-y: auto;
     }
+    */
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-<div class="navbar-right" style="padding-right:20px">
-    <input id="btnAddToCart" type="submit" class="btn btn-default navbar-btn" value="Show Cart" />
-</div>
+
+
+
+
 <div class="navbar-text navbar-right" style="padding-right:20px">
-    
+
     @*@Model.Lines.Sum(x => x.Quantity) item(s), *@ @* //this will return the total weight of the items *@
     @if (Model.Lines.Count == 0)
     {
@@ -30,56 +27,86 @@
     else
     {
         <b>Your cart:</b>
-       @Model.Lines.Count <span>item(s),</span>
-    <span>€ </span>@Model.TotalPrice.ToString("n")
-     }
+        @Model.Lines.Count <span>item(s),</span>
+        <span>€ </span>@Model.TotalPrice.ToString("n")
+    }
 
 </div>
 <!--<button id="btnAddToCart" type="submit">+ SHOW</button>-->
 <div id="dvContents" style="display: none">
-    <div class="popup-cart-buttons">
-        <input id="continue-shopping" class="btn btn-default btn-sm navbar-btn" value="Continue shopping" />
-        @Html.ActionLink("Go to Cart", "Index", null, new { @class = "btn btn-sm btn-danger" })
 
-    </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th class="text-left">Item</th>
-                <th class="text-right">Price per gram</th>
-                <th class="text-right">Quantity</th>
-                <th class="text-right">Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var line in Model.Lines)
+
+</div>
+
+
+<!-- Button trigger modal -->
+<div class="navbar-right" style="padding-right:20px">
+    <input id="btnAddToCart" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Show Cart" />
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Item</th>
+                            <th class="text-right">Price per gram</th>
+                            <th class="text-right">Quantity</th>
+                            <th class="text-right">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var line in Model.Lines)
 
             {
-                <tr>
-                    <td class="text-left">@line.Ingredient.Name</td>
-                    <td class="text-right">€ @line.Ingredient.Price.ToString("n")</td>
-                    <td class="text-right">@line.Quantity<span> g</span></td>
-                    <td class="text-right">€ @((line.Quantity * line.Ingredient.Price).ToString("n"))</td>
-                    <td>
-                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                            <tr>
+                                <td class="text-left">@line.Ingredient.Name</td>
+                                <td class="text-right">€ @line.Ingredient.Price.ToString("n")</td>
+                                <td class="text-right">@line.Quantity<span> g</span></td>
+                                <td class="text-right">€ @((line.Quantity * line.Ingredient.Price).ToString("n"))</td>
+                                <td>
+                                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
                 {
-                            @Html.Hidden("IngredientId", line.Ingredient.IngredientId)
-                            <input class="btn btn-sm btn-warning" type="submit" value="Remove" />
+                                        @Html.Hidden("IngredientId", line.Ingredient.IngredientId)
+                                        <input class="btn btn-sm btn-warning" type="submit" value="Remove" />
+                                    }
+                                </td>
+                            </tr>
                         }
-                    </td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="2" class="text-right">Total:</td>
-                <td class="text-right">
-                    @Model.TotalWeight<span> g</span>
-                </td>
-                <td class="text-right">
-                    € @Model.TotalPrice.ToString("n")
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" class="text-right">Total:</td>
+                            <td class="text-right">
+                                @Model.TotalWeight<span> g</span>
+                            </td>
+                            <td class="text-right">
+                                € @Model.TotalPrice.ToString("n")
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <input id="continue-shopping" class="btn btn-default btn-sm navbar-btn" value="Continue shopping" />
+                @Html.ActionLink("Go to Cart", "Index", null, new { @class = "btn btn-sm btn-danger" })
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
