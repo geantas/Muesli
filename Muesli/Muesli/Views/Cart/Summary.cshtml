@@ -17,7 +17,7 @@
 
 
 
-<div class="navbar-text navbar-right" style="padding-right:20px">
+<div class="navbar-text">
 
     @*@Model.Lines.Sum(x => x.Quantity) item(s), *@ @* //this will return the total weight of the items *@
     @if (Model.Lines.Count == 0)
@@ -30,14 +30,12 @@
         @Model.Lines.Count <span>item(s),</span>
         <span>€ </span>@Model.TotalPrice.ToString("n")
     }
-
+    <input id="btnAddToCart" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Show Cart" />
 </div>
 <!--<button id="btnAddToCart" type="submit">+ SHOW</button>-->
-
-
 <!-- Button trigger modal -->
 
-    <input id="btnAddToCart" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Show Cart" />
+
 
 
 
@@ -95,8 +93,8 @@
 
             </div>
             <div class="modal-footer">
-                <input id="continue-shopping" class="btn btn-default btn-sm navbar-btn" value="Continue shopping" />
-                @Html.ActionLink("Go to Cart", "Index", null, new { @class = "btn btn-sm btn-danger" })
+                <input id="continue-shopping" class="btn btn-secondary" data-dismiss="modal" value="Continue shopping" />
+                @Html.ActionLink("Go to Cart", "Index", null, new { @class = "btn btn-primary" })
             </div>
         </div>
     </div>
