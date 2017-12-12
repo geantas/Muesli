@@ -37,14 +37,15 @@
                 
                 @if (Session["Username"] != null)
                 {
-                    <strong >@Html.ActionLink(Session["Username"].ToString(), "UserDashBoard", "Login", new { area = "" }, new { @class = "nav-item nav-link" })</strong>
+                    <strong>@Html.ActionLink(Session["Username"].ToString(), "UserDashBoard", "Login", new { area = "" }, new { @class = "nav-item nav-link" })</strong>
+                    @Html.ActionLink("Sign Out", "Logout", "Login", new { area = "" }, new { @class = "nav-item nav-link" })
                 }
                 else
                 {
                    @Html.ActionLink("Sign In", "Login", "Login", new { area = "" }, new { @class = "nav-item nav-link" })
                 }
                 
-                @*<a class="nav-item nav-link disabled" href="#">Disabled <li>@Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary" })</li></a>*@
+               
             </div>
         </div>
         <ul class="nav navbar-nav navbar-right">

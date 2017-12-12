@@ -71,5 +71,12 @@ namespace Muesli.Controllers
                 return RedirectToAction("Login");
             }
         }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            Session.Clear();
+            return RedirectToAction("Login", "Login");
+        }
     }
 }

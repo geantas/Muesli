@@ -3,9 +3,19 @@
     ViewBag.Title = "Login - Muesli Madness";
 }
 
-@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+
+
+@if (Session["Username"] != null)
 {
-    <legend>Login</legend>
+    <strong>You are already logged in, @Html.ActionLink(Session["Username"].ToString(), "UserDashBoard", "Login", new { area = "" }, new { @class = "nav-item nav-link" })</strong><br />
+    <span>@Html.ActionLink("Click here to logout", "Logout", "Login")</span>
+}
+else
+{
+
+    using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        <legend> Login </legend>
 
         @Html.AntiForgeryToken()
         @Html.ValidationSummary()
@@ -14,11 +24,14 @@
             @Html.TextBoxFor(a => a.Username)
         </p>
         <p>
-            @Html.LabelFor(a => a.Password)  
+            @Html.LabelFor(a => a.Password)
             @Html.PasswordFor(a => a.Password)
         </p>
         <p>
             <label></label>
-            <input type="submit" value="Login" />
-        </p>
+            <input type = "submit" value = "Login"/>
+
+
+           </p>
+    }
 }  
