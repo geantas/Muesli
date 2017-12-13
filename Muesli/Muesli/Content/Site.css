@@ -23,10 +23,6 @@ textarea {
     max-width: 280px;
 }
 
-/* brand name alignment in Nav  ->  height: 0px;  */
-.navbar-brand {
-     height: 0px; 
-}
 
 .navbar {
     margin-bottom: 0px;
