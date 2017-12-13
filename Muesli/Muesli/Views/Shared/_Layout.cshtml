@@ -21,101 +21,84 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-            
-	        <div class="container">
-            <!-- Brand -->
-            @Html.ActionLink("Muesli madness", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            @*<div class="collapse navbar-collapse" id="navbarNavAltMarkup">*@
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        @Html.ActionLink("Order", "Index", "Order", new { @class = "nav-item nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Our range", "Index", "Range", new { @class = "nav-item nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Admin", "Index", "Admin", new { @class = "nav-item nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @*<a class="nav-item nav-link disabled" href="#">Disabled <li>@Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary" })</li></a>*@
-                    </li>
-                    <li><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
-                </ul>
-            @*</div>*@
+    <div class="content">
 
-            <div class="form-inline my-2 my-lg-0">    @*form-inline my-2 my-lg-0  / nav navbar-nav navbar-right*@
-                @Html.Action("Summary", "Cart")
-            </div>
-            </div>
-        </nav>
+        <!--- navigation -->
 
-    </header>
-    
-    @RenderBody()    
-    
-    <footer>
-                
-        <!-- <p>&copy; @DateTime.Now.Year - Muesli madness</p> -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5>Home</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Plans</a></li>
-                        <li><a href="#">Create a plan</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-3">
-                    <h5>Services</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Track order</a></li>
-                        <li><a href="#">Delivery & Returns</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Contact us</h5>
-                    <address>
-                        Aarhus, Denmark<br>
-                        Klostertorvet 67<br>
-                        <abbr title="Phone">P:</abbr> +45 48590322<br>
-                        <abbr title="Email">E:</abbr> <a href="mailto:muesli@madness.dk">muesli@madness.dk</a>
-                    </address>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Follow us</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Plans</a></li>
-                        <li><a href="#">Create a plan</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="navigation">
+            <ul>
+                <li> <a href="#home">Home</a></li>
+                <li> <a href="#ourplans">Our Plans</a></li>
+                <li> <a href="#createaplan">Create a Plan</a></li>
+                <li> <a href="#signin" id="button">Sign in</a></li>
+            </ul>
         </div>
-    
-    </footer>
-        
 
-        @*@Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/bootstrap")
-            @RenderSection("scripts", required: false)*@
+        <!--- navigation end -->
 
-        <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        @RenderBody()
 
-        <script>
+
+
+        <!--- footer -->
+
+        <h2 id="homefooter">Home</h2>
+
+        <div class="homef">
+            <ul>
+                <li> <a href="#">About</a></li>
+                <li> <a href="#">Our Plans</a></li>
+                <li> <a href="#">Create a Plan</a></li>
+            </ul>
+        </div>
+
+        <h2 id="servicesfooter">Services</h2>
+
+        <div class="servicesf">
+            <ul>
+                <li> <a href="#">Track order</a></li>
+                <li> <a href="#">Delivery & Returns</a></li>
+                <li> <a href="#">Shipping</a></li>
+                <li> <a href="#">FAQ</a></li>
+            </ul>
+        </div>
+
+        <h2 id="contactfooter">Contact us</h2>
+
+        <div class="contactf">
+
+            <p> +45 48590322 </p>
+            <p> muesli@madness.dk </p>
+            <p> Aarhus,Denmark </p>
+            <p> Klostertorvet 67 </p>
+
+        </div>
+
+        <h2 id="followfooter">Follow us</h2>
+
+        <div class="followf">
+
+            <a href="#"><img src="images/facebook.png" /></a>
+            <a href="#"><img src="images/instagram.png" /></a>
+
+        </div>
+        <!--- footer end -->
+
+    </div><!-- content end -->
+
+
+
+@*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<script>
        /*     var showDiv = function (e) {
                 e.preventDefault();
                 $("#dvContents").show();
@@ -136,7 +119,7 @@
 
             //$("#btnAddToCart").click(showDiv);
             $("#continue-shopping").click(hideDiv);*/
-        </script>
+</script>
 
-</body>
+    </body>
 </html>
