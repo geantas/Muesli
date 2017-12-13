@@ -1,41 +1,30 @@
 ﻿@model Muesli.ViewModels.Cart
 
-
-
-
-
 <div class="navbar-text">
+    <i class="fa fa-shopping-cart" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"><span class="badge badge-light">@Model.Lines.Count</span></i>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-       Cart <span class="badge badge-light">@Model.Lines.Count</span>
-    </button>
 
     @*@if (Model.Lines.Count == 0)
-    {
-        <b>Your cart is empty</b>
-    }
-    else
-    {
-        <b>Your cart:</b>
-        @Model.Lines.Count <span>item(s),</span>
-        <span>€ </span>@Model.TotalPrice.ToString("n")
-    }*@
+        {
+            <b>Your cart is empty</b>
+        }
+        else
+        {
+            <b>Your cart:</b>
+            @Model.Lines.Count <span>item(s),</span>
+            <span>€ </span>@Model.TotalPrice.ToString("n")
+        }*@
     @*<input id="btnAddToCart" type="submit" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal" value="Cart" />*@
 
 </div>
 <!--<button id="btnAddToCart" type="submit">+ SHOW</button>-->
 <!-- Button trigger modal -->
-
-
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Your cart</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

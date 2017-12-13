@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-    
+
 
 
 @{
@@ -17,7 +17,7 @@
     <title>Home - Muesli Madness</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-    </head>
+</head>
 <body>
     <div>
 
@@ -27,7 +27,11 @@
         <ul class="nav navbar-nav">
             <li>@Html.ActionLink("Order", "Index", "Order")</li>
             <li>@Html.ActionLink("Our range", "Index", "Range")</li>
-            <li>@Html.ActionLink("Sign In", "Login", "Account")</li>
+            @*<li>@Html.ActionLink("Sign In", "Login", "Account")</li>*@
+            <li>
+                <input type="button" data-toggle="modal" data-target="#exampleModal2" class="btn btn-primary" value="Sign In" />
+                @Html.Partial("~/Views/Shared/Loginform.cshtml")
+            </li>
             @*<li>@Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary" })</li>*@
 
         </ul>

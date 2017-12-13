@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-    
+
     <style>
         .validation-summary-errors {
             color: #f00;
@@ -39,7 +39,7 @@
             <div class="navbar-nav">
                 @Html.ActionLink("Order", "Index", "Order", new { area = "" }, new { @class = "nav-item nav-link" })
                 @Html.ActionLink("Our range", "Index", "Range", new { area = "" }, new { @class = "nav-item nav-link" })
-                
+
                 @if (Session["Username"] != null)
                 {
                     <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account", new { area = "" }, new { @class = "nav-item nav-link" })</strong>
@@ -47,10 +47,12 @@
                 }
                 else
                 {
-                   @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { @class = "nav-item nav-link" })
+                    <input type="button" data-toggle="modal" data-target="#exampleModal2" class="btn btn-primary" value="Sign In" />
+                    @Html.Partial("~/Views/Shared/Loginform.cshtml")
+                    @*@Html.ActionLink("Login", "Account", null, new { @class = "nav-item nav-link", data_toggle = "modal", data_target = "#exampleModal2" })*@
                 }
-                
-               
+
+
             </div>
         </div>
         <ul class="nav navbar-nav navbar-right">
