@@ -28,17 +28,20 @@ textarea {
      height: 0px; 
 }
 
-
-/* ---------------------------------- from Anna -------------------------------------  */
-
-
-/* general styling */
-@font-face {
-    font-family: "Zapfino";
-    src: url('./Zapfino.ttf');
+.navbar {
+    margin-bottom: 0px;
 }
 
-body {
+
+
+    /* ---------------------------------- from Anna -------------------------------------  */
+    /* general styling */
+    @font-face {
+        font-family: "Zapfino";
+        src: url('./Zapfino.ttf');
+    }
+
+    body {
     background-color: white;
 }
 
