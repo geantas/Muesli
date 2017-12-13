@@ -1,26 +1,16 @@
 ﻿@model Muesli.ViewModels.Cart
 
 
-<style>
-    /*#dvContents {
-        display: none; /*hide the div initialy
-    width: auto; /*set the width of the div
-    max-height: 450px; border: 1px solid black; /*define a styling border
-    box-shadow: 0px 0px 7px; position: absolute; /*postition the div in center of screen
-    top: 90%; left: -65%; background-color: white; padding: 5px; overflow-y: auto;
-    }
-    */
-</style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
-
 
 
 
 <div class="navbar-text">
 
-    @*@Model.Lines.Sum(x => x.Quantity) item(s), *@ @* //this will return the total weight of the items *@
-    @if (Model.Lines.Count == 0)
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+       Cart <span class="badge badge-light">@Model.Lines.Count</span>
+    </button>
+
+    @*@if (Model.Lines.Count == 0)
     {
         <b>Your cart is empty</b>
     }
@@ -29,8 +19,9 @@
         <b>Your cart:</b>
         @Model.Lines.Count <span>item(s),</span>
         <span>€ </span>@Model.TotalPrice.ToString("n")
-    }
-    <input id="btnAddToCart" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" value="Show Cart" />
+    }*@
+    @*<input id="btnAddToCart" type="submit" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal" value="Cart" />*@
+
 </div>
 <!--<button id="btnAddToCart" type="submit">+ SHOW</button>-->
 <!-- Button trigger modal -->

@@ -3,7 +3,7 @@ namespace Muesli.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class mymigration3 : DbMigration
+    public partial class initialCreate : DbMigration
     {
         public override void Up()
         {
@@ -69,7 +69,7 @@ namespace Muesli.Migrations
                 "dbo.User",
                 c => new
                     {
-                        UserId = c.Int(nullable: false),
+                        UserId = c.Int(nullable: false, identity: true),
                         Username = c.String(),
                         FirstName = c.String(),
                         LastName = c.String(),

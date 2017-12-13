@@ -5,11 +5,11 @@ using System.Web.Mvc;
 
 namespace Muesli.Controllers
 {
-    public class LoginController : Controller
+    public class AccountController : Controller
     {
         private BreakfastContext db;
 
-        public LoginController()
+        public AccountController()
         {
             db = new BreakfastContext();
         }
@@ -50,7 +50,8 @@ namespace Muesli.Controllers
                     Session["Address"] = obj.Address.ToString();
                     Session["ZipCode"] = obj.ZipCode.ToString();
                     Session["City"] = obj.City.ToString();
-                    return RedirectToAction("UserDashBoard");
+
+                    return RedirectToAction("Account");
                 }
                 else
                 {
@@ -60,7 +61,7 @@ namespace Muesli.Controllers
             return View(objUser);
         }
 
-        public ActionResult UserDashBoard()
+        public ActionResult Account()
         {
             if (Session["UserID"] != null)
             {
@@ -76,7 +77,24 @@ namespace Muesli.Controllers
         {
             Session.Abandon();
             Session.Clear();
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Login", "Account");
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(User obj)
+        {
+            if (ModelState.IsValid)
+            {
+                BreakfastContext db = new BreakfastContext();
+                db.Users.Add(obj);
+                db.SaveChanges();
+            }
+            return View(obj);
         }
     }
 }

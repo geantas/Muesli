@@ -10,6 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    
     <style>
         .validation-summary-errors {
             color: #f00;
@@ -37,12 +42,12 @@
                 
                 @if (Session["Username"] != null)
                 {
-                    <strong>@Html.ActionLink(Session["Username"].ToString(), "UserDashBoard", "Login", new { area = "" }, new { @class = "nav-item nav-link" })</strong>
-                    @Html.ActionLink("Sign Out", "Logout", "Login", new { area = "" }, new { @class = "nav-item nav-link" })
+                    <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account", new { area = "" }, new { @class = "nav-item nav-link" })</strong>
+                    @Html.ActionLink("Sign Out", "Logout", "Account", new { area = "" }, new { @class = "nav-item nav-link" })
                 }
                 else
                 {
-                   @Html.ActionLink("Sign In", "Login", "Login", new { area = "" }, new { @class = "nav-item nav-link" })
+                   @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { @class = "nav-item nav-link" })
                 }
                 
                

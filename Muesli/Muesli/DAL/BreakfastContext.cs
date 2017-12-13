@@ -13,6 +13,7 @@ namespace Muesli.DAL
 
         public BreakfastContext() : base("BreakfastContext")
         {
+            Database.SetInitializer(new BreakfastInitializer());
         }
  
         public DbSet<Ingredient> Ingredients { get; set; }
