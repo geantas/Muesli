@@ -333,6 +333,23 @@ namespace Muesli.Migrations
             //      };
             //    user_subscriptions.ForEach(s => context.User_Subscriptions.Add(s));*/
 
+            context.Orders.AddOrUpdate(
+                new Order() { OrderId = 1, OrderDate = new DateTime(2016, 01, 12), OrderPrice = 23.00m, SubscriptionId = 1 },
+                new Order() { OrderId = 2, OrderDate = new DateTime(2017, 02, 13), OrderPrice = 23.00m, SubscriptionId = 3 },
+                new Order() { OrderId = 3, OrderDate = new DateTime(2017, 03, 14), OrderPrice = 23.00m, SubscriptionId = 4 },
+                new Order() { OrderId = 4, OrderDate = new DateTime(2017, 04, 15), OrderPrice = 23.00m },
+                new Order() { OrderId = 5, OrderDate = new DateTime(2017, 05, 16), OrderPrice = 23.00m }
+                );
+
+            context.User_Orders.AddOrUpdate(
+                new User_Order() { User_Order_Id = 1, UserId = 1, OrderId = 1 },
+                new User_Order() { User_Order_Id = 2, OrderId = 2 },
+                new User_Order() { User_Order_Id = 3, UserId = 2, OrderId = 4 },
+                new User_Order() { User_Order_Id = 4, UserId = 3, OrderId = 3 },
+                new User_Order() { User_Order_Id = 5, OrderId = 5 }
+                );
+
+
             context.SaveChanges();
             base.Seed(context);
 

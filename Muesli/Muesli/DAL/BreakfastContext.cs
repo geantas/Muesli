@@ -22,6 +22,8 @@ namespace Muesli.DAL
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<User_Subscription> User_Subscriptions { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<User_Order> User_Orders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

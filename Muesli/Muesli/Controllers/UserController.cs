@@ -20,22 +20,12 @@ namespace Muesli.Controllers
         {
 
 
-            var UserSub = from i in db.Users
+           /* var UserSub = from i in db.Users
                           join us in db.User_Subscriptions on i.UserId equals us.UserId
                           join s in db.Subscriptions on us.SubscriptionId equals s.SubscriptionId
-                          select i;
-
-        /*var subscr = from s in db.Subscriptions
-                     join us in db.User_Subscriptions on s.SubscriptionId equals us.SubscriptionId
-                     join u in db.Users on us.UserId equals u.UserId
-                     select s;
-        */
+                          select i; */
 
             return View(db.Users.ToList());
-
-            //return View(UserSub.ToList());
-
-            //return View(subscr.ToList());
         }
 
         // GET: User/Details/5

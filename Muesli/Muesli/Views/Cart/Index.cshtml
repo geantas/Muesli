@@ -1,6 +1,6 @@
 ﻿@model Muesli.ViewModels.CartIndexViewModel
 @{
-    ViewBag.Title = "Your Cart";
+    ViewBag.Title = "Your Cart - Muesli Madness";
 }
 <h2>Your cart</h2>
 <table class="table">
@@ -45,6 +45,41 @@
     </tfoot>
 </table>
 <div class="text-center">
-    <a class="btn btn-primary" href="/Order">Continue shopping</a>
-    @Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Continue shopping", "Index", "Order", new { area = "" }, new { @class = "btn btn-primary" })
+    @if (Session["Username"] != null)
+    {
+        @Html.ActionLink("Checkout", "Checkout", "Cart", new { area = "" }, new { @class = "btn btn-primary" })
+    }
+    else
+    {
+        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Checkout</button>
+    }
+    @*@Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary" })*@
 </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Don't have an account? Register here", "Register", "Account", new { area = "" }, new { @class = "nav-item nav-link" })
+                    @*@Html.ActionLink("Checkout as a guest", "Register")*@
+                    @Html.ActionLink("No, thanks. I'll buy as a guest this time", "Checkout", "Cart", new { area = "" }, new { @class = "nav-item nav-link" })
+                </div>
+                <div class="modal-footer">
+                    <input id="continue-shopping" class="btn btn-secondary" data-dismiss="modal" value="Cancel" />
+                    @*@Html.ActionLink("Go to Cart", "Index", null, new { @class = "btn btn-primary" })*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+

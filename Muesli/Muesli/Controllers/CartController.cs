@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Muesli.Models;
 using Muesli.ViewModels;
 using Muesli.DAL;
+using System;
 
 namespace Muesli.Controllers
 {
@@ -102,19 +103,49 @@ namespace Muesli.Controllers
             return PartialView(cart);
         }
 
-        public ViewResult Checkout()
+        public ViewResult Checkout([Bind(Include = "UserID,Username,FirstName,LastName,Email,Password,Address,ZipCode,City")] User user)
         {
             return View(new ShippingDetails());
-        }        [HttpPost]
-        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        }
+
+        [HttpPost]
+        public ViewResult Checkout( Cart cart, ShippingDetails shippingDetails)
         {
             if (cart.Lines.Count() == 0)
             {
-                ModelState.AddModelError("", "Sorry, your cart is empty!");
+                ModelState.AddModelError("", "Your cart is empty!");
             }
+
+            if (string.IsNullOrEmpty(shippingDetails.Firstname))
+            {
+                ModelState.AddModelError("FirstName", "Please enter your First name");
+            }
+            if (string.IsNullOrEmpty(shippingDetails.Lastname))
+            {
+                ModelState.AddModelError("LastName", "Please enter your Last name");
+            }
+            if (string.IsNullOrEmpty(shippingDetails.Email))
+            {
+                ModelState.AddModelError("Email", "Please enter your e-mail");
+            }
+            if (string.IsNullOrEmpty(shippingDetails.Address))
+            {
+                ModelState.AddModelError("Address", "Please enter your address");
+            }
+            if (string.IsNullOrEmpty(shippingDetails.ZipCode))
+            {
+                ModelState.AddModelError("ZipCode", "Please enter your zip code");
+            }
+            if (string.IsNullOrEmpty(shippingDetails.City))
+            {
+                ModelState.AddModelError("City", "Please enter your city");
+            }
+
 
             if (ModelState.IsValid)
             {
+
+
                 /*Customer customer = new Customer
                 {
                     Firstname = shippingDetails.Firstname,
@@ -126,8 +157,7 @@ namespace Muesli.Controllers
 
                 if (db.Customers.Any(c => c.Firstname == customer.Firstname && c.Lastname == customer.Lastname && c.Email == customer.Email))
                 {
-                    customer = db.Customers.Where(c => c.Firstname == customer.Firstname && c.Lastname == customer.Lastname && 
-                    c.Email == customer.Email).First();
+                    customer = db.Customers.Where(c => c.Firstname == customer.Firstname && c.Lastname == customer.Lastname && c.Email == customer.Email).First();
                     customer.Address = shippingDetails.Address;
                     customer.Zip = shippingDetails.Zip;
                     // ensure update instead of insert
@@ -148,10 +178,10 @@ namespace Muesli.Controllers
                 db.Invoices.Add(invoice);*/
 
 
-               // db.SaveChanges();
+                // db.SaveChanges();
 
                 // order processing logic
-                cart.Clear();
+                //cart.Clear();
                 return View("Completed");
             }
             else

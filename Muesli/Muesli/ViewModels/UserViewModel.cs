@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Muesli.Models;
 
-namespace Muesli.Models
+namespace Muesli.ViewModels
 {
-    public class User
+    public class UserViewModel
     {
         public int UserId { get; set; }
         [Display(Name = "Username")]
@@ -22,8 +23,5 @@ namespace Muesli.Models
         [Display(Name = "Zip code")]
         public string ZipCode { get; set; }
         public string City { get; set; }
-
-        public virtual ICollection<User_Subscription> User_Subscriptions { get; set; }
-        public virtual ICollection<User_Order> User_Orders { get; set; }
     }
 }

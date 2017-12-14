@@ -3,28 +3,138 @@
     ViewBag.Title = "Checkout";
 }
 <h2>Check out now</h2>
-<p>Please enter your details, and we'll ship your goods right away!</p>
-@using (Html.BeginForm())
+
+@if (Session["Username"] != null) //if signed in
 {
-    <h3>Ship to</h3>
-    foreach (var property in ViewData.ModelMetadata.Properties)
-    {
-        if (property.PropertyName != "GiftWrap")
-        {
-            <div class="form-group">
-                <label>@(property.DisplayName ?? property.PropertyName)</label>
-                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
-            </div>
-        }
-    }
-    <h3>Options</h3>
-    <div class="checkbox">
-        <label>
-            @Html.EditorFor(x => x.GiftWrap)
-            Gift wrap these items
-        </label>
-    </div>
-    <div class="text-center">
-        <input class="btn btn-primary" type="submit" value="Complete order" />
-    </div>
+    <p>Please check your details, and we'll ship your goods right away!</p>
 }
+else
+{
+    <p>Please enter your details, and we'll ship your goods right away!</p>
+}
+
+
+@if (Session["Username"] != null) //if signed in
+{
+    using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <label class="">
+            @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label" })
+        </label>
+        @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control", placeholder = Session["Firstname"] } })
+        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+        <br />
+        <label class="">
+            @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label" })
+        </label>
+        @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control", placeholder = Session["Lastname"] } })
+        @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+        <br />
+        <label class="">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+        </label>
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = Session["Email"] } })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        <br />
+        <label class="">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+        </label>
+        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", placeholder = Session["Address"] } })
+        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        <br />
+        <label class="">
+            @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label" })
+        </label>
+        @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", placeholder = Session["ZipCode"] } })
+        @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+        <br />
+        <label class="">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label" })
+        </label>
+        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", placeholder = Session["City"] } })
+        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        <br />
+        <h3>Options</h3>
+        <div id="subscription">
+            <label>
+                @Html.EditorFor(x => x.SaveToSubs, new { htmlAttributes = new { @class = "subscription" } }) 
+                Save to my subscriptions
+            </label>
+        </div>
+        <div id="daypicker" class="daypicker row" style="display:none;">
+            <span class="input-group-addon" style="padding-right:35px;">Every:</span>
+            <input type="number" id="subscription-frequency" class="subscription-frequency" style="width:55px;" step="1" value="0">
+            <span class="input-group-addon" style="padding-right:35px;">day(s)</span>
+        </div>
+        <br />
+        <div class="">
+            <input class="btn btn-primary" type="submit" value="Complete order" />
+        </div>
+            <br />
+            <br />
+            <br />
+            <br />
+    }
+}
+else // if NOT signed in
+{
+    using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <label class="">
+            @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label" })
+        </label>
+        @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+        <br />
+            <label class="">
+                @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label" })
+            </label>
+            @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+            <br />
+            <label class="">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+            </label>
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            <br />
+            <label class="">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+            </label>
+            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            <br />
+            <label class="">
+                @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label" })
+            </label>
+            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+            <br />
+            <label class="">
+                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label" })
+            </label>
+            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            <br />
+            <br />
+            <div class="">
+                <input class="btn btn-primary" type="submit" value="Complete order" />
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+    }
+}
+
+<script>
+    $(document).ready(function () {
+        $(".subscription").click(function () {
+            $("#daypicker").slideToggle(this.checked);
+        });
+
+    });
+
+</script>

@@ -18,8 +18,9 @@
      <span>Oooooooooo! Privet, </span><strong>@Session["Username"].ToString()</strong>
     }
     <br />
+
     <br />
-    <div>Acount details:</div>
+    <div>Acount details: ( @Html.ActionLink("Edit", "Edit", new { id = Session["UserID"] }) )</div>
     <br />
     <p>
         <strong>User Id: </strong>@Session["UserID"].ToString()

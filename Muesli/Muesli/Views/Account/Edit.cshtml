@@ -1,8 +1,10 @@
 ﻿@model Muesli.Models.User
 
 @{
-    ViewBag.Title = "Register - Muesli Madness";
+    ViewBag.Title = "Edit Account - Muesli Madness";
 }
+
+<h2>Edit account details</h2>
 
 
 @using (Html.BeginForm())
@@ -10,9 +12,10 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Registration</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.UserId)
+
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -48,7 +51,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type="password" } })
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -77,14 +80,19 @@
             </div>
         </div>
 
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Register" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to Home", "Index", "Home")
+    @Html.ActionLink("Back to List", "Account")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
