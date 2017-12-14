@@ -1,191 +1,198 @@
 ﻿@model IEnumerable<Muesli.Models.Ingredient>
 
 @{
-    ViewBag.Title = "Order - Muesli madness";
+    ViewBag.Title = "Order";
+    // Layout = null;
 }
+
 @*@using (Html.BeginForm("Index", "Cart"))
     {
         @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
         <input type="submit" class="btn btn-success" value="View Cart" />
     }*@
-<h2>
-    Order your Muesli
-</h2>
-<p>
-    Choose your custom ingredients:
-</p>
 
-<div class="thecontent" style="display:inline;">
-    <div class="ingredients ingredient-base">
-        <div class='toggleHolder'>
-            <div class='toggler'>
-                <h5>Base ingredient</h5>
+<div class="container">
+
+    <h2>
+        Order your Muesli
+    </h2>
+    <p>
+        Choose your custom ingredients:
+    </p>
+
+    <div class="thecontent" style="display:inline;">
+        <div class="ingredients ingredient-base">
+            <div class='toggleHolder'>
+                <div class='toggler'>
+                    <h5>Base ingredient</h5>
+                </div>
+                <div class='toggler' style='display:none;'>
+                    <h5>Base ingredient</h5>
+                </div>
             </div>
-            <div class='toggler' style='display:none;'>
-                <h5>Base ingredient</h5>
+            <div class='wrapper wrapper-base' style='display:none;'>
+                @*<div class='wrapper wrapper-base'>*@
+                @using (Html.BeginForm("AddToCart", "Cart"))
+            {
+                    @Html.DropDownList("Ingredients1")
+                    <div class="selected selected-base" style="display:none;">
+                        <input name="quantity" id="quantity" type="range" min="5" max="800" value="5" /><br />
+                        <span>
+                            Selected:
+                            <span></span>
+                            grams
+                        </span><br />
+                        <span>
+                            Price:
+                            <span class="priceresult"></span>
+                        </span><br />
+                        @Html.Hidden("IngredientId")@*IEnumerable<Muesli.Models.Ingredient.IngredientId>)*@
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Add to cart" />
+                    </div>
+                }
+                @*</div>*@
             </div>
         </div>
-        <div class='wrapper wrapper-base' style='display:none;'>
-            @*<div class='wrapper wrapper-base'>*@
-            @using (Html.BeginForm("AddToCart", "Cart"))
-            {
-                @Html.DropDownList("Ingredients1")
-                <div class="selected selected-base" style="display:none;">
-                    <input name="quantity" id="quantity" type="range" min="5" max="800" value="5" /><br />
-                    <span>
-                        Selected:
-                        <span></span>
-                        grams
-                    </span><br />
-                    <span>
-                        Price:
-                        <span class="priceresult"></span>
-                    </span><br />
-                    @Html.Hidden("IngredientId")@*IEnumerable<Muesli.Models.Ingredient.IngredientId>)*@
-                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" class="btn btn-success" value="Add to cart" />
+        <div class="ingredients ingredient-fruits">
+            <div class='toggleHolder'>
+                <div class='toggler'>
+                    <h5>Fruits</h5>
                 </div>
-            }
-            @*</div>*@
+                <div class='toggler' style='display:none;'>
+                    <h5>Fruits</h5>
+                </div>
+            </div>
+            <div class='wrapper wrapper-fruits' style='display:none;'>
+                @*<div class='wrapper wrapper-fruits'>*@
+                @using (Html.BeginForm("AddToCart2", "Cart"))
+            {
+                    @Html.DropDownList("Ingredients2")
+                    <div class="selected selected-fruits" style="display:none;">
+                        <input name="quantity" id="quantity" type="range" min="5" max="500" value="5" /><br />
+                        <span>
+                            Selected:
+                            <span></span>
+                            grams
+                        </span><br />
+                        <span>
+                            Price:
+                            <span class="priceresult"></span>
+                        </span><br />
+                        @Html.Hidden("IngredientId")
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Add to cart" />
+                    </div>
+                }
+                @*</div>*@
+            </div>
+        </div>
+
+        <div class="ingredients ingredient-nuts">
+            <div class='toggleHolder'>
+                <div class='toggler'>
+                    <h5>Nuts</h5>
+                </div>
+                <div class='toggler' style='display:none;'>
+                    <h5>Nuts</h5>
+                </div>
+            </div>
+            <div class='wrapper wrapper-nuts' style='display:none;'>
+                @*<div class='wrapper wrapper-nuts'>*@
+                @using (Html.BeginForm("AddToCart3", "Cart"))
+            {
+                    @Html.DropDownList("Ingredients3")
+                    <div class="selected selected-nuts" style="display:none;">
+                        <input name="quantity" id="quantity" type="range" min="5" max="250" value="5" /><br />
+                        <span>
+                            Selected:
+                            <span></span>
+                            grams
+                        </span><br />
+                        <span>
+                            Price:
+                            <span class="priceresult"></span>
+                        </span><br />
+                        @Html.Hidden("IngredientId")
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Add to cart" />
+
+                    </div>
+                }
+                @*</div>*@
+            </div>
+        </div>
+        <div class="ingredients ingredient-seeds">
+            <div class='toggleHolder'>
+                <div class='toggler'>
+                    <h5>Seeds</h5>
+                </div>
+                <div class='toggler' style='display:none;'>
+                    <h5>Seeds</h5>
+                </div>
+            </div>
+            <div class='wrapper wrapper-seeds' style='display:none;'>
+                @*<div class='wrapper wrapper-seeds'>*@
+                @using (Html.BeginForm("AddToCart4", "Cart"))
+            {
+                    @Html.DropDownList("Ingredients4")
+                    <div class="selected selected-seeds" style="display:none;">
+                        <input name="quantity" id="quantity" type="range" min="5" max="100" value="5" /><br />
+                        <span>
+                            Selected:
+                            <span></span>
+                            grams
+                        </span><br />
+                        <span>
+                            Price:
+                            <span class="priceresult"></span>
+                        </span><br />
+                        @Html.Hidden("IngredientId")
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Add to cart" />
+
+                    </div>
+                }
+                @*</div>*@
+            </div>
+        </div>
+        <div class="ingredients ingredient-others">
+            <div class='toggleHolder'>
+                <div class='toggler'>
+                    <h5>Others</h5>
+                </div>
+                <div class='toggler' style='display:none;'>
+                    <h5>Others</h5>
+                </div>
+            </div>
+            <div class='wrapper wrapper-others' style='display:none;'>
+                @*<div class='wrapper wrapper-others'>*@
+                @using (Html.BeginForm("AddToCart5", "Cart"))
+            {
+                    @Html.DropDownList("Ingredients5")
+                    <div class="selected selected-others " style="display:none;">
+                        <input name="quantity" id="quantity" type="range" class="" min="5" max="100" value="5" /><br />
+                        <span>
+                            Selected:
+                            <span class="weight"></span>
+                            grams
+                        </span><br />
+                        <span>
+                            Price:
+                            <span class="priceresult"></span>
+                        </span><br />
+                        @Html.Hidden("IngredientId")
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Add to cart" />
+
+                    </div>
+                }
+                @*</div>*@
+            </div>
         </div>
     </div>
-    <div class="ingredients ingredient-fruits">
-        <div class='toggleHolder'>
-            <div class='toggler'>
-                <h5>Fruits</h5>
-            </div>
-            <div class='toggler' style='display:none;'>
-                <h5>Fruits</h5>
-            </div>
-        </div>
-        <div class='wrapper wrapper-fruits' style='display:none;'>
-            @*<div class='wrapper wrapper-fruits'>*@
-            @using (Html.BeginForm("AddToCart2", "Cart"))
-            {
-                @Html.DropDownList("Ingredients2")
-                <div class="selected selected-fruits" style="display:none;">
-                    <input name="quantity" id="quantity" type="range" min="5" max="500" value="5" /><br />
-                    <span>
-                        Selected:
-                        <span></span>
-                        grams
-                    </span><br />
-                    <span>
-                        Price:
-                        <span class="priceresult"></span>
-                    </span><br />
-                    @Html.Hidden("IngredientId")
-                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" class="btn btn-success" value="Add to cart" />
-                </div>
-            }
-            @*</div>*@
-        </div>
-    </div>
 
-    <div class="ingredients ingredient-nuts">
-        <div class='toggleHolder'>
-            <div class='toggler'>
-                <h5>Nuts</h5>
-            </div>
-            <div class='toggler' style='display:none;'>
-                <h5>Nuts</h5>
-            </div>
-        </div>
-        <div class='wrapper wrapper-nuts' style='display:none;'>
-            @*<div class='wrapper wrapper-nuts'>*@
-            @using (Html.BeginForm("AddToCart3", "Cart"))
-            {
-                @Html.DropDownList("Ingredients3")
-                <div class="selected selected-nuts" style="display:none;">
-                    <input name="quantity" id="quantity" type="range" min="5" max="250" value="5" /><br />
-                    <span>
-                        Selected:
-                        <span></span>
-                        grams
-                    </span><br />
-                    <span>
-                        Price:
-                        <span class="priceresult"></span>
-                    </span><br />
-                    @Html.Hidden("IngredientId")
-                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" class="btn btn-success" value="Add to cart" />
-
-                </div>
-            }
-            @*</div>*@
-        </div>
-    </div>
-    <div class="ingredients ingredient-seeds">
-        <div class='toggleHolder'>
-            <div class='toggler'>
-                <h5>Seeds</h5>
-            </div>
-            <div class='toggler' style='display:none;'>
-                <h5>Seeds</h5>
-            </div>
-        </div>
-        <div class='wrapper wrapper-seeds' style='display:none;'>
-            @*<div class='wrapper wrapper-seeds'>*@
-            @using (Html.BeginForm("AddToCart4", "Cart"))
-            {
-                @Html.DropDownList("Ingredients4")
-                <div class="selected selected-seeds" style="display:none;">
-                    <input name="quantity" id="quantity" type="range" min="5" max="100" value="5" /><br />
-                    <span>
-                        Selected:
-                        <span></span>
-                        grams
-                    </span><br />
-                    <span>
-                        Price:
-                        <span class="priceresult"></span>
-                    </span><br />
-                    @Html.Hidden("IngredientId")
-                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" class="btn btn-success" value="Add to cart" />
-
-                </div>
-            }
-            @*</div>*@
-        </div>
-    </div>
-    <div class="ingredients ingredient-others">
-        <div class='toggleHolder'>
-            <div class='toggler'>
-                <h5>Others</h5>
-            </div>
-            <div class='toggler' style='display:none;'>
-                <h5>Others</h5>
-            </div>
-        </div>
-        <div class='wrapper wrapper-others' style='display:none;'>
-            @*<div class='wrapper wrapper-others'>*@
-            @using (Html.BeginForm("AddToCart5", "Cart"))
-            {
-                @Html.DropDownList("Ingredients5")
-                <div class="selected selected-others " style="display:none;">
-                    <input name="quantity" id="quantity" type="range" class="" min="5" max="100" value="5" /><br />
-                    <span>
-                        Selected:
-                        <span class="weight"></span>
-                        grams
-                    </span><br />
-                    <span>
-                        Price:
-                        <span class="priceresult"></span>
-                    </span><br />
-                    @Html.Hidden("IngredientId")
-                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" class="btn btn-success" value="Add to cart" />
-
-                </div>
-            }
-            @*</div>*@
-        </div>
-    </div>
-</div>
+</div><!-- container end -->
 
 <script>
 

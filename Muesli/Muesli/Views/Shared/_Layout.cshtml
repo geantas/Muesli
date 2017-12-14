@@ -43,6 +43,8 @@
                     @Html.Partial("~/Views/Shared/Loginform.cshtml")
                     @*@Html.ActionLink("Login", "Account", null, new { @class = "nav-item nav-link", data_toggle = "modal", data_target = "#exampleModal2" })*@
                 }</li>
+
+                <li>@Html.Action("Summary", "Cart")</li>
             </ul>
         </div>
 
