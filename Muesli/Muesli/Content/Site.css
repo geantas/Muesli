@@ -14,6 +14,31 @@
 /* code from layout page end */
 
 
+/* targeting primary colour */
+
+.btn-primary, btn {
+    color: #fff;
+    background-color: #BFACA9 !important;
+    border-color: #BFACA9 !important;
+}
+
+footer h5 {
+    color: #BFACA9;
+}
+
+body {
+    /*background: url('./images/bg.png') no-repeat center center;*/
+    background-size: cover;
+    /* Workaround for some mobile browsers */
+    min-height: 100%;
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+.navbar {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 
 /*body {
     padding-top: 50px;
