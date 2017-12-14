@@ -6,26 +6,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/jpg" href="images/2.jpg" />
-<<<<<<< HEAD
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-=======
+
     <title>@ViewBag.Title - Muesli madness</title>
->>>>>>> 00a96182cee5db50f937bbfaca64cefdc93eaf10
 
     @*@Scripts.Render("~/bundles/modernizr")*@
 
     <!-- Bootstrap core css -->
-    @Styles.Render("~/Content/css")
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom stylesheets -->
+    @Styles.Render("~/Content/css")
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i" rel="stylesheet">
 
@@ -49,17 +41,10 @@
                 }
                 else
                 {
-<<<<<<< HEAD
-                    @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { @class = "btn btn-primary" })
-                }
-=======
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                    <input type="button" data-toggle="modal" data-target="#exampleModal2" class="btn btn-primary" value="Sign In" />
-                    @Html.Partial("~/Views/Shared/Loginform.cshtml")
+                    @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { @class = "btn btn-primary" })
                     @*@Html.ActionLink("Login", "Account", null, new { @class = "nav-item nav-link", data_toggle = "modal", data_target = "#exampleModal2" })*@
                 }</li>
->>>>>>> 00a96182cee5db50f937bbfaca64cefdc93eaf10
-
                 <li>@Html.Action("Summary", "Cart")</li>
             </ul>
         </div>
@@ -69,37 +54,6 @@
 
         @RenderBody()
 
-<<<<<<< HEAD
-    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to sign out? All items in cart will be deleted.
-                </div>
-                <div class="modal-footer">
-                    @Html.ActionLink("Sign Out", "Logout", "Account", new { area = "" }, new { @class = "btn btn-secondary" })
-                    <input id="continue-shopping" class="btn btn-primary " data-dismiss="modal" value="Cancel" />
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-=======
 
         <!--- footer -->
 
@@ -146,6 +100,38 @@
         <!--- footer end -->
 
     </div><!-- content end -->
+
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to sign out? All items in cart will be deleted.
+                </div>
+                <div class="modal-footer">
+                    @Html.ActionLink("Sign Out", "Logout", "Account", new { area = "" }, new { @class = "btn btn-secondary" })
+                    <input id="continue-shopping" class="btn btn-primary " data-dismiss="modal" value="Cancel" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
     @*@Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)*@
@@ -176,6 +162,6 @@
             $("#continue-shopping").click(hideDiv); */
     </script>
 
->>>>>>> 00a96182cee5db50f937bbfaca64cefdc93eaf10
+
 </body>
 </html>
