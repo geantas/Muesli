@@ -33,7 +33,7 @@
             <ul>
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                 <li>@Html.ActionLink("Order", "Index", "Order", new { area = "" }, new { @class = "nav-item nav-link" })</li>
-                <li>@Html.ActionLink("Our range", "Index", "Range", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                <li>@Html.ActionLink("Our plans", "Index", "Range", new { area = "" }, new { @class = "nav-item nav-link" })</li>
                 <li>@if (Session["Username"] != null)
                 {
                     <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account", new { area = "" }, new { @class = "nav-item nav-link" })</strong>
