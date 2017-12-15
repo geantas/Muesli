@@ -7,13 +7,13 @@ namespace Muesli.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class i_hate_my_life : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(i_hate_my_life));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712142358576_InitialCreate"; }
+            get { return "201712150845407_i_hate_my_life"; }
         }
         
         string IMigrationMetadata.Source

@@ -189,9 +189,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
-    <Compile Include="Migrations\201712142358576_InitialCreate.cs" />
-    <Compile Include="Migrations\201712142358576_InitialCreate.Designer.cs">
-      <DependentUpon>201712142358576_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201712150845407_i_hate_my_life.cs" />
+    <Compile Include="Migrations\201712150845407_i_hate_my_life.Designer.cs">
+      <DependentUpon>201712150845407_i_hate_my_life.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -326,8 +326,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712142358576_InitialCreate.resx">
-      <DependentUpon>201712142358576_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712150845407_i_hate_my_life.resx">
+      <DependentUpon>201712150845407_i_hate_my_life.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

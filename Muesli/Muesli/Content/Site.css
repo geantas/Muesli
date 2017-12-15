@@ -42,15 +42,22 @@ header .navbar-default {
 /* hero image for order page */
 
 .whatamidoing {
-    background-image: url("./images/perfec_morning.png");
+    background-image: url("./images/perfect_morning.png");
+    width: 100%;
+    text-align: right;
 }
 
 .planyour {
-
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 120px;
+    padding-bottom: 99px;
 }
 
 .perfectmorning {
-
+    font-family: 'Zapfino';
+    font-size: 105px;
 }
 
 /* code from layout page */
@@ -79,6 +86,10 @@ header .navbar-default {
 
 footer h5 {
     color: #BFACA9;
+}
+
+footer.bg-light {
+    padding: 20px 0;
 }
 
 body {
