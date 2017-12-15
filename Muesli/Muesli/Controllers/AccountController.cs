@@ -4,6 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using Muesli.ViewModels;
+using System;
 
 namespace Muesli.Controllers
 {
@@ -67,7 +69,21 @@ namespace Muesli.Controllers
         {
             if (Session["UserID"] != null)
             {
-                return View();
+                int curruser = Convert.ToInt32(Session["UserID"]);
+                // return View();
+
+
+                //Subscription subscription = db.Subscriptions.Find(Session["UserID"]);
+                //    return View(subscription);
+
+                var subscriptions = from s in db.Subscriptions
+                                    join u in db.Users on s.UserId equals u.UserId
+                                    where s.UserId == curruser
+                                    select s;
+
+                return View(subscriptions.ToList());
+
+
             }
             else
             {
@@ -164,7 +180,7 @@ namespace Muesli.Controllers
 
                     db.Entry(user).State = EntityState.Modified;
                     db.SaveChanges();
-                    
+
                     Session["Username"] = user.Username.ToString();
                     Session["Firstname"] = user.FirstName.ToString();
                     Session["Lastname"] = user.LastName.ToString();

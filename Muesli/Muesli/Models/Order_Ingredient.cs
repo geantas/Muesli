@@ -8,17 +8,17 @@ using System.ComponentModel.DataAnnotations;
 namespace Muesli.Models
 {
 
-    public class Ingredient_Category
+    public class Order_Ingredient
     {
-        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Ingredient_Category_Id { get; set; }
+        public int Order_Ingredient_Id { get; set; }
+        public int? OrderId { get; set; }
         public int IngredientId { get; set; }
-        public int CategoryId { get; set; }
+        public int Quantity { get; set; }
 
+        public virtual Order Order { get; set; }
         public virtual Ingredient Ingredient { get; set; }
-        public virtual Category Category { get; set; }
 
     }
 }
