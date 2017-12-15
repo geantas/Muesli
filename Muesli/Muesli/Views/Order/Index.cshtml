@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Order";
-    // Layout = null;
+    Layout = "~/Views/Shared/_Layout_Bt.cshtml";
 }
 
 @*@using (Html.BeginForm("Index", "Cart"))
@@ -11,14 +11,19 @@
         <input type="submit" class="btn btn-success" value="View Cart" />
     }*@
 
-<div class="container">
+    <!-- hero image -->
+    <div class="whatamidoing" id="withmylife">
+        <span class="planyour">plan your</span>
+        <span class="perfectmorning">perfect morning</span>
+    </div>
 
-    <h2>
-        Order your Muesli
-    </h2>
-    <p>
-        Choose your custom ingredients:
-    </p>
+    <h2>Order your Muesli</h2>
+
+    <div class="row">
+
+    <div class="col-sm-2, col-md">
+
+    <p>Choose your custom ingredients:</p>
 
     <div class="thecontent" style="display:inline;">
         <div class="ingredients ingredient-base">
@@ -192,7 +197,11 @@
         </div>
     </div>
 
-</div><!-- container end -->
+    </div>
+
+    <div class="col-sm-2 col-md">&nbsp;</div>
+
+    </div><!-- row end -->
 
 <script>
 

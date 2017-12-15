@@ -1,51 +1,113 @@
 ﻿@model Muesli.Models.User
 @{
-    ViewBag.Title = "Login - Muesli Madness";
+    ViewBag.Title = "Login";
+    Layout = "";
+
 }
 
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="images/2.jpg" />
+    <title>@ViewBag.Title - Muesli madness</title>
 
 
-@if (Session["Username"] != null)
-{
-    <strong>You are already logged in, @Html.ActionLink(Session["Username"].ToString(), "Account", new { area = "" }, new { @class = "nav-item nav-link" })</strong><br />
-    <span>@Html.ActionLink("Click here to logout", "Logout", "Account")</span>
-}
-else
-{
+    @*@Scripts.Render("~/bundles/modernizr")*@
 
-    using (Html.BeginForm("Login", "Account", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
+    <!-- Bootstrap core css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-        <div class="form-horizontal">
-            <h4>Login</h4>
-            <hr />
+    <!-- Custom stylesheets -->
+    @Styles.Render("~/Content/css")
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i" rel="stylesheet">
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <span class="control-label col-md-2"> </span>
-                <div class="col-md-10">
-                    <input type="submit" class="btn btn-primary" value="Login" />
-                </div>
-            </div>
-        </div>
-    }
-    <p>
-        @Html.ActionLink("Don't have an account? Click here to register", "Register")
-    </p>
-}
+</head>
+<body>
+
+     <div class="container">
+         <div class="row justify-content-md-center">
+             <div class="col-md-auto">
+
+                 @if (Session["Username"] != null)
+                 {
+                     <strong>You are already logged in, @Html.ActionLink(Session["Username"].ToString(), "Account", new { area = "" }, new { @class = "nav-item nav-link" })</strong><br />
+                     <span>@Html.ActionLink("Click here to logout", "Logout", "Account")</span>
+                 }
+                 else
+                 {
+
+                     using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                     {
+                         @Html.AntiForgeryToken()
+
+                         <div class="card">
+                             <h4 class="card-header">Login</h4>
+                             <div class="card-body">
+
+                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                 <div class="form-group">
+                                     @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label" })
+                                     <div>
+                                         @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                                         @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+                                     <div>
+                                         @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <span class="control-label"> </span>
+                                     <div>
+                                         <input type="submit" class="btn btn-primary" value="Login" />
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div class="card-footer text-muted">
+                                 @Html.ActionLink("Don't have an account? Click here to register", "Register")
+                             </div>
+
+                         </div><!-- end card -->
+                     }
+
+                 }
+
+                 </div>
+             </div>
+         </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <script>
+       /*     var showDiv = function (e) {
+                e.preventDefault();
+                $("#dvContents").show();
+            }
+            var hideDiv = function (e) {
+                e.preventDefault();
+                $("#dvContents").hide();
+            }
+            $("#btnAddToCart").click(function () {
+                $("#dvContents").toggle("fast", function () {
+                    // Animation complete.
+                });
+            })
+            //$("#btnAddToCart").click(showDiv);
+            $("#continue-shopping").click(hideDiv);*/
+    </script>
+
+</body>
+</html>

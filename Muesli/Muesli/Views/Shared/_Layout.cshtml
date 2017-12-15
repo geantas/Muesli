@@ -1,6 +1,4 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -12,12 +10,14 @@
     @*@Scripts.Render("~/bundles/modernizr")*@
 
     <!-- Bootstrap core css -->
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom stylesheets -->
-    @*@Styles.Render("~/Content/css")*@
+
+    @Styles.Render("~/Content/css")
+
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i" rel="stylesheet">
 
@@ -25,7 +25,7 @@
 <body>
 
 
-    <div class="content">
+    <div class="container">
 
         <!--- navigation -->
 
@@ -33,7 +33,7 @@
             <ul>
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                 <li>@Html.ActionLink("Order", "Index", "Order", new { area = "" }, new { @class = "nav-item nav-link" })</li>
-                <li>@Html.ActionLink("Our range", "Index", "Range", new { area = "" }, new { @class = "nav-item nav-link" })</li>
+                <li>@Html.ActionLink("Our plans", "Index", "Range", new { area = "" }, new { @class = "nav-item nav-link" })</li>
                 <li>@if (Session["Username"] != null)
                 {
                     <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account", new { area = "" }, new { @class = "nav-item nav-link" })</strong>
