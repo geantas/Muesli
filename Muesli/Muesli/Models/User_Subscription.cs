@@ -11,6 +11,7 @@ namespace Muesli.Models
     public class User_Subscription
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int User_Subscription_Id { get; set; }
         public int SubscriptionId { get; set; }
         public int UserId { get; set; }

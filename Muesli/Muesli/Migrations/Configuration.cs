@@ -215,7 +215,8 @@ namespace Muesli.Migrations
                  new User() { UserId = 6, Username = "user6", FirstName = "UserFirstName6", LastName = "UserLastName6", Email = "email6@gmail.com", Password = "magic6", Address = "Fake street 6", ZipCode = "8006", City = "Aarhus" },
                  new User() { UserId = 7, Username = "user7", FirstName = "UserFirstName7", LastName = "UserLastName7", Email = "email7@gmail.com", Password = "magic6", Address = "Fake street 7", ZipCode = "8007", City = "Aarhus" },
                  new User() { UserId = 8, Username = "user8", FirstName = "UserFirstName8", LastName = "UserLastName8", Email = "email8@gmail.com", Password = "magic6", Address = "Fake street 8", ZipCode = "8008", City = "Aarhus" },
-                 new User() { UserId = 9, Username = "user9", FirstName = "UserFirstName9", LastName = "UserLastName9", Email = "email9@gmail.com", Password = "magic6", Address = "Fake street 9", ZipCode = "8009", City = "Aarhus" }
+                 new User() { UserId = 9, Username = "user9", FirstName = "UserFirstName9", LastName = "UserLastName9", Email = "email9@gmail.com", Password = "magic6", Address = "Fake street 9", ZipCode = "8009", City = "Aarhus" },
+                 new User() { UserId = 66, Username = "admin", FirstName = "Administrator", LastName = "Mister", Email = "admin@gmail.com", Password = "magic6", Address = "Not Fake Street 66", ZipCode = "8666", City = "Galaxy" }
            );
 
 
@@ -236,27 +237,27 @@ namespace Muesli.Migrations
 
 
             context.Subscriptions.AddOrUpdate(
-                new Subscription() { SubscriptionId = 1, Date_created = new DateTime(2016, 01, 12), Delivery_frequency = 60, Price = 13.00m },
-                new Subscription() { SubscriptionId = 2, Date_created = new DateTime(2017, 02, 13), Delivery_frequency = 7, Price = 14.00m },
-                new Subscription() { SubscriptionId = 3, Date_created = new DateTime(2017, 03, 14), Delivery_frequency = 90, Price = 18.00m },
-                new Subscription() { SubscriptionId = 4, Date_created = new DateTime(2017, 04, 11), Delivery_frequency = 10, Price = 15.00m },
-                new Subscription() { SubscriptionId = 5, Date_created = new DateTime(2017, 05, 10), Delivery_frequency = 45, Price = 19.00m },
-                new Subscription() { SubscriptionId = 6, Date_created = new DateTime(2016, 06, 11), Delivery_frequency = 90, Price = 12.00m },
-                new Subscription() { SubscriptionId = 7, Date_created = new DateTime(2016, 07, 12), Delivery_frequency = 100, Price = 15.00m },
-                new Subscription() { SubscriptionId = 8, Date_created = new DateTime(2017, 08, 13), Delivery_frequency = 66, Price = 20.00m },
-                new Subscription() { SubscriptionId = 9, Date_created = new DateTime(2017, 09, 10), Delivery_frequency = 55, Price = 21.00m },
-                new Subscription() { SubscriptionId = 10, Date_created = new DateTime(2015, 10, 11), Delivery_frequency = 44, Price = 12.00m },
-                new Subscription() { SubscriptionId = 11, Date_created = new DateTime(2016, 11, 12), Delivery_frequency = 33, Price = 13.00m },
-                new Subscription() { SubscriptionId = 12, Date_created = new DateTime(2016, 12, 13), Delivery_frequency = 33, Price = 14.00m },
-                new Subscription() { SubscriptionId = 13, Date_created = new DateTime(2017, 10, 10), Delivery_frequency = 22, Price = 15.00m },
-                new Subscription() { SubscriptionId = 14, Date_created = new DateTime(2014, 03, 11), Delivery_frequency = 12, Price = 16.00m },
-                new Subscription() { SubscriptionId = 15, Date_created = new DateTime(2017, 02, 12), Delivery_frequency = 23, Price = 17.00m },
-                new Subscription() { SubscriptionId = 16, Date_created = new DateTime(2017, 06, 13), Delivery_frequency = 43, Price = 18.00m },
-                new Subscription() { SubscriptionId = 17, Date_created = new DateTime(2017, 05, 10), Delivery_frequency = 21, Price = 19.00m },
-                new Subscription() { SubscriptionId = 18, Date_created = new DateTime(2017, 01, 11), Delivery_frequency = 21, Price = 20.00m },
-                new Subscription() { SubscriptionId = 19, Date_created = new DateTime(2017, 03, 12), Delivery_frequency = 28, Price = 21.00m },
-                new Subscription() { SubscriptionId = 20, Date_created = new DateTime(2017, 12, 13), Delivery_frequency = 30, Price = 22.00m }
-            );
+                new Subscription() { SubscriptionId = 1, Date_created = new DateTime(2016, 01, 12), Delivery_frequency = 60, Price = 13.00m, UserId = 1 },
+                new Subscription() { SubscriptionId = 2, Date_created = new DateTime(2017, 02, 13), Delivery_frequency = 7, Price = 14.00m, UserId = 2 },
+                new Subscription() { SubscriptionId = 3, Date_created = new DateTime(2017, 03, 14), Delivery_frequency = 90, Price = 18.00m, UserId = 1 },
+                new Subscription() { SubscriptionId = 4, Date_created = new DateTime(2017, 04, 11), Delivery_frequency = 10, Price = 15.00m, UserId = 2 },
+                new Subscription() { SubscriptionId = 5, Date_created = new DateTime(2017, 05, 10), Delivery_frequency = 45, Price = 19.00m, UserId = 3 },
+                new Subscription() { SubscriptionId = 6, Date_created = new DateTime(2016, 06, 11), Delivery_frequency = 90, Price = 12.00m, UserId = 3 },
+                new Subscription() { SubscriptionId = 7, Date_created = new DateTime(2016, 07, 12), Delivery_frequency = 100, Price = 15.00m, UserId = 4 },
+                new Subscription() { SubscriptionId = 8, Date_created = new DateTime(2017, 08, 13), Delivery_frequency = 66, Price = 20.00m, UserId = 1 },
+                new Subscription() { SubscriptionId = 9, Date_created = new DateTime(2017, 09, 10), Delivery_frequency = 55, Price = 21.00m, UserId = 1 },
+                new Subscription() { SubscriptionId = 10, Date_created = new DateTime(2015, 10, 11), Delivery_frequency = 44, Price = 12.00m, UserId = 2 },
+                new Subscription() { SubscriptionId = 11, Date_created = new DateTime(2016, 11, 12), Delivery_frequency = 33, Price = 13.00m, UserId = 2 },
+                new Subscription() { SubscriptionId = 12, Date_created = new DateTime(2016, 12, 13), Delivery_frequency = 33, Price = 14.00m, UserId = 5 },
+                new Subscription() { SubscriptionId = 13, Date_created = new DateTime(2017, 10, 10), Delivery_frequency = 22, Price = 15.00m, UserId = 6 },
+                new Subscription() { SubscriptionId = 14, Date_created = new DateTime(2014, 03, 11), Delivery_frequency = 12, Price = 16.00m, UserId = 7 },
+                new Subscription() { SubscriptionId = 15, Date_created = new DateTime(2017, 02, 12), Delivery_frequency = 23, Price = 17.00m, UserId = 8 },
+                new Subscription() { SubscriptionId = 16, Date_created = new DateTime(2017, 06, 13), Delivery_frequency = 43, Price = 18.00m, UserId = 2 },
+                new Subscription() { SubscriptionId = 17, Date_created = new DateTime(2017, 05, 10), Delivery_frequency = 21, Price = 19.00m, UserId = 3 },
+                new Subscription() { SubscriptionId = 18, Date_created = new DateTime(2017, 01, 11), Delivery_frequency = 21, Price = 20.00m, UserId = 4 },
+                new Subscription() { SubscriptionId = 19, Date_created = new DateTime(2017, 03, 12), Delivery_frequency = 28, Price = 21.00m, UserId = 2 },
+                new Subscription() { SubscriptionId = 20, Date_created = new DateTime(2017, 12, 13), Delivery_frequency = 30, Price = 22.00m, UserId = 1 }
+                );
 
             //   /*var subscriptions = new List<Subscription>
             //   {
@@ -347,6 +348,24 @@ namespace Muesli.Migrations
                 new User_Order() { User_Order_Id = 3, UserId = 2, OrderId = 4 },
                 new User_Order() { User_Order_Id = 4, UserId = 3, OrderId = 3 },
                 new User_Order() { User_Order_Id = 5, OrderId = 5 }
+                );
+
+            context.Order_Ingredients.AddOrUpdate(
+                new Order_Ingredient() { Order_Ingredient_Id = 1, OrderId = 1, IngredientId = 1, Quantity = 70 },
+                new Order_Ingredient() { Order_Ingredient_Id = 2, OrderId = 1, IngredientId = 2, Quantity = 71 },
+                new Order_Ingredient() { Order_Ingredient_Id = 3, OrderId = 1, IngredientId = 3, Quantity = 72 },
+                new Order_Ingredient() { Order_Ingredient_Id = 4, OrderId = 1, IngredientId = 4, Quantity = 73 },
+                new Order_Ingredient() { Order_Ingredient_Id = 5, OrderId = 1, IngredientId = 5, Quantity = 74 },
+                new Order_Ingredient() { Order_Ingredient_Id = 6, OrderId = 2, IngredientId = 6, Quantity = 75 },
+                new Order_Ingredient() { Order_Ingredient_Id = 7, OrderId = 2, IngredientId = 7, Quantity = 76 },
+                new Order_Ingredient() { Order_Ingredient_Id = 8, OrderId = 2, IngredientId = 8, Quantity = 77 },
+                new Order_Ingredient() { Order_Ingredient_Id = 9, OrderId = 3, IngredientId = 9, Quantity = 78 },
+                new Order_Ingredient() { Order_Ingredient_Id = 10, OrderId = 5, IngredientId = 10, Quantity = 79 },
+                new Order_Ingredient() { Order_Ingredient_Id = 11, OrderId = 3, IngredientId = 11, Quantity = 80 },
+                new Order_Ingredient() { Order_Ingredient_Id = 12, OrderId = 2, IngredientId = 12, Quantity = 81 },
+                new Order_Ingredient() { Order_Ingredient_Id = 13, OrderId = 2, IngredientId = 13, Quantity = 82 },
+                new Order_Ingredient() { Order_Ingredient_Id = 14, OrderId = 3, IngredientId = 14, Quantity = 83 },
+                new Order_Ingredient() { Order_Ingredient_Id = 15, OrderId = 5, IngredientId = 15, Quantity = 84 }
                 );
 
 

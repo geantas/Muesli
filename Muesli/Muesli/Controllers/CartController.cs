@@ -4,6 +4,7 @@ using Muesli.Models;
 using Muesli.ViewModels;
 using Muesli.DAL;
 using System;
+using System.Data.Entity;
 
 namespace Muesli.Controllers
 {
@@ -103,13 +104,13 @@ namespace Muesli.Controllers
             return PartialView(cart);
         }
 
-        public ViewResult Checkout([Bind(Include = "UserID,Username,FirstName,LastName,Email,Password,Address,ZipCode,City")] User user)
+        public ViewResult Checkout([Bind(Include = "UserID,Username,FirstName,LastName,Email,Address,ZipCode,City")] User user)
         {
             return View(new ShippingDetails());
         }
 
         [HttpPost]
-        public ViewResult Checkout( Cart cart, ShippingDetails shippingDetails)
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
         {
             if (cart.Lines.Count() == 0)
             {
@@ -146,6 +147,116 @@ namespace Muesli.Controllers
             {
 
 
+                if (Session["UserID"] != null)
+                {
+                    User user = new User
+                    {
+                        UserId = Convert.ToInt32(Session["UserId"]),
+                        Username = Session["Username"].ToString(),
+                        FirstName = shippingDetails.Firstname,
+                        LastName = shippingDetails.Lastname,
+                        Email = shippingDetails.Email,
+                        Address = shippingDetails.Address,
+                        ZipCode = shippingDetails.ZipCode,
+                        City = shippingDetails.City
+                    };
+
+                }
+                else
+                {
+                    User user = new User
+                    {
+                       // UserId = 0,
+                        Username = "0",
+                        FirstName = shippingDetails.Firstname,
+                        LastName = shippingDetails.Lastname,
+                        Email = shippingDetails.Email,
+                        Address = shippingDetails.Address,
+                        ZipCode = shippingDetails.ZipCode,
+                        City = shippingDetails.City
+                    };
+
+                }
+
+                if (shippingDetails.SaveToSubs == true) //if user saves it as subscription
+                {
+                    Subscription subscription = new Subscription { Date_created = DateTime.Now, Delivery_frequency = shippingDetails.Frequency, Price = cart.TotalPrice };
+                    User_Subscription user_subscription = new User_Subscription { UserId = Convert.ToInt32(Session["UserID"]), SubscriptionId = subscription.SubscriptionId };
+                    Order order = new Order { OrderDate = DateTime.Now, OrderPrice = cart.TotalPrice, SubscriptionId = subscription.SubscriptionId };
+                    User_Order user_order = new User_Order { UserId = Convert.ToInt32(Session["UserID"]), OrderId = order.OrderId };
+
+                    
+                    db.Subscriptions.Add(subscription);
+                    db.User_Subscriptions.Add(user_subscription);
+                    db.Orders.Add(order);
+                    db.User_Orders.Add(user_order);
+                    db.SaveChanges();
+
+                    foreach (CartLine cartline in cart.Lines)
+                    {
+                        Order_Ingredient order_ingredient = new Order_Ingredient { OrderId = order.OrderId, IngredientId = cartline.Ingredient.IngredientId, Quantity = cartline.Quantity };
+                        db.Order_Ingredients.Add(order_ingredient);
+                        db.SaveChanges();
+                    }
+
+
+                } else //if user does not save subscription (should be applied as guest user, too)
+                {
+                    Order order = new Order { OrderDate = DateTime.Now, OrderPrice = cart.TotalPrice };
+                    db.Orders.Add(order);
+                    db.SaveChanges();
+
+                    if (Session["UserID"] != null)
+                    {
+                        User_Order user_order = new User_Order { UserId = Convert.ToInt32(Session["UserID"]), OrderId = order.OrderId };
+                        db.User_Orders.Add(user_order);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        User_Order user_order = new User_Order { OrderId = order.OrderId };
+                        db.User_Orders.Add(user_order);
+                        db.SaveChanges();
+                    }
+
+                    
+                    
+
+                    foreach (CartLine cartline in cart.Lines)
+                    {
+                        Order_Ingredient order_ingredient = new Order_Ingredient { OrderId = order.OrderId, IngredientId = cartline.Ingredient.IngredientId, Quantity = cartline.Quantity };
+                        db.Order_Ingredients.Add(order_ingredient);
+                        db.SaveChanges();
+                    }
+                }
+                
+
+
+                //User_Order user_order = new User_Order { UserId = Convert.ToInt32(Session["UserID"]), OrderId = order.OrderId };
+                //db.Orders.Add(order);
+                //db.User_Orders.Add(user_order);
+                //db.SaveChanges();
+
+                /*foreach (CartLine cartline in cart.Lines)
+                {
+              
+                    Order_Ingredient order_ingredient = new Order_Ingredient { OrderId = order.OrderId, IngredientId = cartline.Ingredient.IngredientId, Quantity = cartline.Quantity };
+                    db.Order_Ingredients.Add(order_ingredient);
+                    db.SaveChanges();
+                }*/
+
+
+                /*if (db.Users.Any(c => c.Username == user.Username))
+                {
+                    user = db.Users.Where(c => c.Username == user.Username || c.UserId == user.UserId).First();
+                    //user.ZipCode = shippingDetails.ZipCode;
+                    //order = db.Orders.Where(c => c.OrderPrice == ViewModels.TotalPrice)
+
+                    // ensure update instead of insert
+                    db.Entry(user).State = EntityState.Modified;
+                }*/
+
+
                 /*Customer customer = new Customer
                 {
                     Firstname = shippingDetails.Firstname,
@@ -178,16 +289,20 @@ namespace Muesli.Controllers
                 db.Invoices.Add(invoice);*/
 
 
-                // db.SaveChanges();
+                db.SaveChanges();
 
                 // order processing logic
-                //cart.Clear();
+                cart.Clear();
                 return View("Completed");
             }
             else
             {
+
                 return View(shippingDetails);
             }
-        }
+        }
+
+
     }
 }
+

@@ -15,15 +15,25 @@ namespace Muesli.Controllers
     {
         private BreakfastContext db = new BreakfastContext();
 
-        // GET: Ingredient
-        public ActionResult Index()
+        
+
+    // GET: Ingredient
+    public ActionResult Index()
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             return View(db.Ingredients.ToList());
         }
 
         // GET: Ingredient/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +49,10 @@ namespace Muesli.Controllers
         // GET: Ingredient/Create
         public ActionResult Create()
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             return View();
         }
 
@@ -49,6 +63,10 @@ namespace Muesli.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IngredientId,Name,Price")] Ingredient ingredient)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             if (ModelState.IsValid)
             {
                 db.Ingredients.Add(ingredient);
@@ -62,6 +80,10 @@ namespace Muesli.Controllers
         // GET: Ingredient/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +103,10 @@ namespace Muesli.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IngredientId,Name,Price")] Ingredient ingredient)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(ingredient).State = EntityState.Modified;
@@ -93,6 +119,10 @@ namespace Muesli.Controllers
         // GET: Ingredient/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +140,10 @@ namespace Muesli.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             Ingredient ingredient = db.Ingredients.Find(id);
             db.Ingredients.Remove(ingredient);
             db.SaveChanges();
@@ -118,6 +152,7 @@ namespace Muesli.Controllers
 
         protected override void Dispose(bool disposing)
         {
+
             if (disposing)
             {
                 db.Dispose();
