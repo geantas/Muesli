@@ -9,7 +9,8 @@ namespace Muesli.Models
 {
     public class Order
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Order date")]
@@ -20,5 +21,6 @@ namespace Muesli.Models
 
 
         public virtual ICollection<User_Order> User_Orders { get; set; }
+        public virtual ICollection<Order_Ingredient> Order_Ingredient { get; set; }
     }
 }

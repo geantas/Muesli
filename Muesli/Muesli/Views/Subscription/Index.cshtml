@@ -11,8 +11,12 @@
 </p>
 <table class="table">
     <tr>
+
         <th>
             @Html.DisplayNameFor(model => model.Date_created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubscriptionId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Delivery_frequency)
@@ -25,8 +29,12 @@
 
 @foreach (var item in Model) {
     <tr>
+
         <td>
             @Html.DisplayFor(modelItem => item.Date_created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubscriptionId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Delivery_frequency) day(s)
