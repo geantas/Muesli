@@ -1,6 +1,59 @@
 ﻿
-/* code from layout page */
+/* transparent heading */
 
+/**  Header Navigation **/
+
+header .navbar {
+    padding: 20px 0;
+    transition: all .5s ease-out;
+}
+
+header .navbar-default {
+    background-color: transparent;
+    border: none;
+}
+
+    header .navbar-default .navbar-nav a {
+        color: white;
+        padding: 5px 8px;
+    }
+
+    header .navbar-default .navbar-nav a:hover {
+            color: #EEC856;
+            font-weight: 700;
+        }
+
+    header .navbar-default .navbar-nav .active a {
+        font-weight: 700;
+        color: #EEC856;
+        background: transparent;
+        /*  border-bottom: 4px solid #9F8B87;    */
+        text-shadow: none;
+    }
+
+    header .navbar-default .navbar-nav .nav-item a:hover {
+            color: #BFACA9;
+            background: transparent;
+            text-shadow: none;
+            border-bottom: 4px solid #9F8B87;
+        }
+
+
+/* hero image for order page */
+
+.whatamidoing {
+    background-image: url("./images/perfec_morning.png");
+}
+
+.planyour {
+
+}
+
+.perfectmorning {
+
+}
+
+/* code from layout page */
 .validation-summary-errors {
     color: #f00;
     font-weight: bold;
@@ -21,6 +74,8 @@
     background-color: #BFACA9 !important;
     border-color: #BFACA9 !important;
 }
+
+/* hedings in the footer footer */
 
 footer h5 {
     color: #BFACA9;
