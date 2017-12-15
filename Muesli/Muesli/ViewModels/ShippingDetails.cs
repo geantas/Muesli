@@ -19,5 +19,6 @@ namespace Muesli.ViewModels
         public string ZipCode { get; set; }
         public string City { get; set; }
         public bool SaveToSubs { get; set; }
+        public int Frequency { get; set; }
     }
 }

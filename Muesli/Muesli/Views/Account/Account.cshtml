@@ -1,4 +1,4 @@
-﻿@model Muesli.Models.User
+﻿@model IEnumerable<Muesli.Models.Subscription>
 
 @{
     ViewBag.Title = "Account - Muesli Madness";
@@ -15,16 +15,13 @@
 
     @if (Session["Username"] != null)
     {
-     <span>Oooooooooo! Privet, </span><strong>@Session["Username"].ToString()</strong>
+        <span>Hello, </span><strong>@Session["Firstname"].ToString()</strong>
     }
     <br />
 
     <br />
     <div>Acount details: ( @Html.ActionLink("Edit", "Edit", new { id = Session["UserID"] }) )</div>
     <br />
-    <p>
-        <strong>User Id: </strong>@Session["UserID"].ToString()
-    </p>
     <p>
         <strong>Username: </strong>@Session["Username"].ToString()
     </p>
@@ -34,19 +31,50 @@
     <p>
         <strong>Lastname: </strong>@Session["Lastname"].ToString()
     </p>
-    <p>
-        <strong>E-mail: </strong>@Session["Email"].ToString()
-    </p>
-    <p>
-        <strong>Address: </strong>@Session["Address"].ToString()
-    </p>
-    <p>
-        <strong>Zip: </strong>@Session["ZipCode"].ToString()
-    </p>
-    <p>
-        <strong>City: </strong>@Session["City"].ToString()
-    </p>
+    <p><strong>Your subscriptions: </strong></p>
+@*@foreach (var item in Model)
+{
+            @Html.DisplayFor(x => item.Date_created, new { htmlAttributes = new { @class = "form-control" } } )
+    <br />
 
+}*@
+    <p>
+        @Html.ActionLink("Create new", "Index", "Order")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubscriptionId)
+                </td>
+                <td>
+                    € @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Subscription", new { id = item.SubscriptionId }, new { area = "" }) |
+                    @Html.ActionLink("Delete", "Delete", "Subscription", new { id = item.SubscriptionId }, new { area = "" })
+                </td>
+            </tr>
+        }
+
+    </table>
 
 </body>
 </html>

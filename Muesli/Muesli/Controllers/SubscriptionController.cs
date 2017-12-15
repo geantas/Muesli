@@ -18,12 +18,20 @@ namespace Muesli.Controllers
         // GET: Subscription
         public ActionResult Index()
         {
+            if ( Session["Username"].ToString() != "admin")
+            {
+                return HttpNotFound();
+            }
             return View(db.Subscriptions.ToList());
         }
 
         // GET: Subscription/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +47,10 @@ namespace Muesli.Controllers
         // GET: Subscription/Create
         public ActionResult Create()
         {
+            if (Session["Username"].ToString() != "admin")
+            {
+                return HttpNotFound();
+            }
             return View();
         }
 
@@ -49,6 +61,10 @@ namespace Muesli.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SubscriptionId,Date_created,Delivery_frequency,Price")] Subscription subscription)
         {
+            if (Session["Username"].ToString() != "admin")
+            {
+                return HttpNotFound();
+            }
             if (ModelState.IsValid)
             {
                 db.Subscriptions.Add(subscription);
@@ -62,6 +78,10 @@ namespace Muesli.Controllers
         // GET: Subscription/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["Username"].ToString() != "admin")
+            {
+                return HttpNotFound();
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +101,10 @@ namespace Muesli.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "SubscriptionId,Date_created,Delivery_frequency,Price")] Subscription subscription)
         {
+            if (Session["Username"].ToString() != "admin")
+            {
+                return HttpNotFound();
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(subscription).State = EntityState.Modified;
@@ -93,6 +117,10 @@ namespace Muesli.Controllers
         // GET: Subscription/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +138,10 @@ namespace Muesli.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["UserID"] == null)
+            {
+                return HttpNotFound();
+            }
             Subscription subscription = db.Subscriptions.Find(id);
             db.Subscriptions.Remove(subscription);
             db.SaveChanges();
