@@ -32,28 +32,34 @@ header .navbar-default {
     }
 
     header .navbar-default .navbar-nav .nav-item a:hover {
-            color: #BFACA9;
-            background: transparent;
-            text-shadow: none;
-            border-bottom: 4px solid #9F8B87;
-        }
+        color: #BFACA9;
+        background: transparent;
+        text-shadow: none;
+        border-bottom: 4px solid #9F8B87;
+    }
 
 
 /* hero image for order page */
 
-.whatamidoing {
-    background-image: url("./images/perfect_morning.png");
-    width: 100%;
-    text-align: right;
+.hero {
+    position: relative;
+    height: 700px;
+    top: 0;
 }
 
-.planyour {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-style: italic;
-    font-size: 120px;
-    padding-bottom: 99px;
+.whatamidoing {
+    background-image: url("./images/perfect_morning.png");
+    text-align: right;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
 }
+
+}
+
 
 .perfectmorning {
     font-family: 'Zapfino';
