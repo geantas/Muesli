@@ -58,7 +58,13 @@ header .navbar-default {
     height: 100%;
 }
 
-
+.planyour {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 120px;
+    padding-bottom: 99px;
+}
 
 .perfectmorning {
     font-family: 'Zapfino';
