@@ -1,0 +1,297 @@
+﻿
+
+@{
+    ViewBag.Title = "Our Plans";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="/images/ico.PNG" />
+    <link type="text/css" rel="stylesheet" href="/Content/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i" rel="stylesheet">
+    <title>our plans</title>
+</head>
+
+<body>
+<div class="content"> 
+
+    <!--- navigation -->
+
+      <div class="navigation">
+          <ul>
+              <li>@Html.ActionLink("Home", "Index", "Home")</li>
+              <li>@Html.ActionLink("Our Plans", "Ourplans", "Home")</li>
+              <li>@Html.ActionLink("Create a Plan", "Index", "Order")</li>
+              <li>
+                  @if (Session["Username"] != null)
+                  {
+                      <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account")</strong>
+                      <button class="button" style="margin:0;" data-toggle="modal" data-target="#exampleModal3">Sign Out</button>
+                  }
+                  else
+                  {
+                      @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { id = "button" })
+                  }
+              </li>
+          </ul>
+
+      </div>
+      
+ <!--- navigation end -->
+  <img class="image1ourplans" src="/Content/images/ourplansfirst.png"/> 
+
+  
+ <h1 class="headline3">our</h1> 
+ <h2 class="headline4">favorites</h2>
+
+               <!--- coconut crush -->
+    
+               <!--- square styling -->
+  
+  
+      <a class ="squarecoco" href="#crush"></a>
+
+      <p class="wordonecoco">coconut</p>
+      <p class="wordtwococo">crush</p>
+
+ 
+               <!--- square styling end -->
+
+  <div id="crush">
+    <img src="/Content/images/coconutcrush.png">
+  </div>
+
+  <p class="textcoco"> 
+    Crunchy coconut bites mixed with chocolate and some fresh blueberries? It's a definite <em>yes</em>
+    from us here at <em>muesli madness</em>.       
+ </p>
+
+ <h3 id="coconutig"> Ingridients</h3>
+ <ul class="coconutingridients">
+   <li>Coconut</li>
+   <li>Chocolate</li>
+   <li>Blueberry</li>
+   <li>Greek Yogurt</li>
+   <li>Granola</li>
+ </ul>
+
+ <h3 id="coconutcal"> Calories</h3>
+ <ul class="coconutcalories">
+   <li>21cal/30g</li>
+   <li>70cal/40g</li>
+   <li>30cal/40g</li>
+   <li>70cal/70g</li>
+   <li>30cal/50g</li>
+<br>
+<br>
+   <li>230g</li>
+   <li>100DKK</li>
+ </ul>
+
+ <ul class="price">
+   <li>Quantity</li>
+   <li>Price</li>
+ </ul>
+
+ <a href="#" id="addcoco">Add to cart</a>
+
+               <!--- coconut crush end -->
+
+
+                <!---summer bloom -->
+    
+               <!--- square styling -->
+  
+  
+      <a class ="squaresummer" href="#bloom"></a>
+      
+            <p class="wordonebloom">summer</p>
+            <p class="wordtwobloom">bloom</p>
+      
+       
+                     <!--- square styling end -->
+      
+        <div id="bloom">
+          <img src="/Content/images/summerbloom.png">
+        </div>
+      
+        <p class="textsummer"> 
+          Your tastebuds will be happy after 
+          you introduce them to the fruity flavor
+          bouqet that we combine in our 
+          summer bloom plan.        
+       </p>
+      
+       <h3 id="summerig"> Ingridients</h3>
+       <ul class="summeringridients">
+         <li>Strawberry</li>
+         <li>Guava</li>
+         <li>Passion fruit</li>
+         <li>Greek Yogurt</li>
+         <li>Granola</li>
+       </ul>
+      
+       <h3 id="summercal"> Calories</h3>
+       <ul class="summercalories">
+         <li>30cal/30g</li>
+         <li>30cal/20g</li>
+         <li>25cal/20g</li>
+         <li>70cal/70g</li>
+         <li>30cal/50g</li>
+      <br>
+      <br>
+         <li>190g</li>
+         <li>100DKK</li>
+       </ul>
+      
+       <ul class="summerprice">
+         <li>Quantity</li>
+         <li>Price</li>
+       </ul>
+
+       <a href="#" id="addbloom">Add to cart</a>
+      <!--- summer bloom end -->
+      
+<!--- bright pineapple -->
+    
+<!--- square styling -->
+  
+  
+<a class ="squarebright" href="#bright"></a>
+               
+<p class="wordonebright">sweet</p>
+<p class="wordtwobright">pineapple</p>
+               
+                
+ <!--- square styling end -->
+               
+
+ <div id="bright">
+<img src="/Content/images/brightpineapple.png">
+ </div>
+               
+                 <p class="textbright"> 
+                Shout out to all of those <em>Instagram</em> stars out there, this
+                plan is going to decorate your profile with beautiful shades of yellow.   
+                </p>
+               
+                <h3 id="brightig"> Ingridients</h3>
+                <ul class="brightingridients">
+                  <li>Pineapple</li>
+                  <li>Peach</li>
+                  <li>Almonds</li>
+                  <li>Greek Yogurt</li>
+                  <li>Granola</li>
+                </ul>
+               
+                <h3 id="brightcal"> Calories</h3>
+                <ul class="brightcalories">
+                  <li>20cal/20g</li>
+                  <li>30cal/40g</li>
+                  <li>50cal/20g</li>
+                  <li>70cal/70g</li>
+                  <li>30cal/50g</li>
+               <br>
+               <br>
+                  <li>200g</li>
+                  <li>110DKK</li>
+                </ul>
+               
+ <ul class="brightprice">
+ <li>Quantity</li>
+ <li>Price</li>
+  </ul>    
+
+  <a href="#" id="addbright">Add to cart</a>
+  
+ <!--- bright pineapple end -->
+               
+
+
+    <!--- Doesn't quite suit you -->
+                
+  <div class="rectangle"> </div>
+
+    <p class="createaplan"> Doesn't quite suit you? </p>
+    <a href="#" id="createplan">Create a Plan</a>
+
+   <!--- Doesn't quite suit you end -->
+
+
+                <!--- footer -->
+
+                <h2 id="homefooter">Home</h2>
+
+                <div class="homef">
+                    <ul>
+                      <li> <a href="#">About</a></li>
+                      <li> <a href="#">Our Plans</a></li>
+                      <li> <a href="#">Create a Plan</a></li>   
+                    </ul>
+                </div>
+
+                <h2 id="servicesfooter">Services</h2>
+                
+               <div class="servicesf">
+             <ul>
+             <li> <a href="#">Track order</a></li>
+             <li> <a href="#">Delivery & Returns</a></li>
+             <li> <a href="#">Shipping</a></li> 
+             <li> <a href="#">FAQ</a></li>    
+             </ul>
+               </div>
+
+               <h2 id="contactfooter">Contact us</h2>
+               
+              <div class="contactf">
+
+              <p> +45 48590322 </p>
+              <p> muesli@madness.dk </p>
+              <p> Aarhus,Denmark </p>
+              <p> Klostertorvet 67 </p>
+          
+              </div>
+
+              <h2 id="followfooter">Follow us</h2>
+              
+             <div class="followf">
+           
+           <a href="#"><img src="/Content/images/facebook.png" /></a>
+           <a href="#"><img src="/Content/images/instagram.png" /></a>
+           
+             </div>
+                <!--- footer end -->
+
+</div> 
+
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to sign out? All items in cart will be deleted.
+                </div>
+                <div class="modal-footer">
+                    @Html.ActionLink("Sign Out", "Logout", "Account", new { area = "" }, new { @class = "button" })
+                    <input id="continue-shopping" class="button" data-dismiss="modal" value="Cancel" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

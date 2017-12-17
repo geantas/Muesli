@@ -10,5 +10,10 @@ namespace Muesli.Controllers
         {
             return View();
         }
+
+        public ActionResult Ourplans()
+        {
+            return View();
+        }
     }
 }

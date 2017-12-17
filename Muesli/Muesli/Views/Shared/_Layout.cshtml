@@ -3,123 +3,130 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/jpg" href="images/2.jpg" />
-
+    <link rel="shortcut icon" type="image/jpg" href="images/ico.PNG" />
     <title>@ViewBag.Title - Muesli madness</title>
 
     @*@Scripts.Render("~/bundles/modernizr")*@
 
     <!-- Bootstrap core css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom stylesheets -->
-
     @Styles.Render("~/Content/css")
-
-
+    <link href="~/Content/style.css" rel="stylesheet" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i" rel="stylesheet">
 
 </head>
 <body>
 
+    <header>
+        @*<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
+
+                <div class="navigation">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Our Plans", "Ourplans", "Home")</li>
+                        <li>@Html.ActionLink("Create a Plan", "Index", "Order")</li>
+                        <li>
+                            @if (Session["Username"] != null)
+                            {
+                                <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account")</strong>
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { id = "button" })
+                            }
+                        </li>
+                        @Html.Action("Summary", "Cart", new { @class = "button" })
+                    </ul>
+
+                </div>
+
+            </nav>*@
+
+        <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
+            <div class="container navigation">
+                <ul class="nav" >
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nagvtn" } )</li>
+                    <li>@Html.ActionLink("Our Plans", "Ourplans", "Home")</li>
+                    <li>@Html.ActionLink("Create a Plan", "Index", "Order")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @if (Session["Username"] != null)
+                        {
+                            <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account")</strong>
+
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { id = "button" })
+                        }
+                    </li>
+                    <li>
+                        @Html.Action("Summary", "Cart", new { @class = "button" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
 
     <div class="container">
 
-        <!--- navigation -->
-
-        <div class="navigation">
-            <ul>
-                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li>@Html.ActionLink("Order", "Index", "Order", new { area = "" }, new { @class = "nav-item nav-link" })</li>
-                <li>@Html.ActionLink("Our plans", "Index", "Range", new { area = "" }, new { @class = "nav-item nav-link" })</li>
-                <li>@if (Session["Username"] != null)
-                {
-                    <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account", new { area = "" }, new { @class = "nav-item nav-link" })</strong>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">Sign Out</button>
-                }
-                else
-                {
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                    @Html.ActionLink("Sign In", "Login", "Account", new { area = "" }, new { @class = "btn btn-primary" })
-                    @*@Html.ActionLink("Login", "Account", null, new { @class = "nav-item nav-link", data_toggle = "modal", data_target = "#exampleModal2" })*@
-                }</li>
-                <li>@Html.Action("Summary", "Cart")</li>
-            </ul>
-        </div>
-
-        <!--- navigation end -->
-
-
         @RenderBody()
 
-
-        <!--- footer -->
-
-        <h2 id="homefooter">Home</h2>
-
-        <div class="homef">
-            <ul>
-                <li> <a href="#">About</a></li>
-                <li> <a href="#">Our Plans</a></li>
-                <li> <a href="#">Create a Plan</a></li>
-            </ul>
-        </div>
-
-        <h2 id="servicesfooter">Services</h2>
-
-        <div class="servicesf">
-            <ul>
-                <li> <a href="#">Track order</a></li>
-                <li> <a href="#">Delivery & Returns</a></li>
-                <li> <a href="#">Shipping</a></li>
-                <li> <a href="#">FAQ</a></li>
-            </ul>
-        </div>
-
-        <h2 id="contactfooter">Contact us</h2>
-
-        <div class="contactf">
-
-            <p> +45 48590322 </p>
-            <p> muesli@madness.dk </p>
-            <p> Aarhus,Denmark </p>
-            <p> Klostertorvet 67 </p>
-
-        </div>
-
-        <h2 id="followfooter">Follow us</h2>
-
-        <div class="followf">
-
-            <a href="#"><img src="/Content/images/facebook.png" /></a>
-            <a href="#"><img src="/Content/images/instagram.png" /></a>
-
-        </div>
-        <!--- footer end -->
-
-    </div><!-- content end -->
-
-    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to sign out? All items in cart will be deleted.
-                </div>
-                <div class="modal-footer">
-                    @Html.ActionLink("Sign Out", "Logout", "Account", new { area = "" }, new { @class = "btn btn-secondary" })
-                    <input id="continue-shopping" class="btn btn-primary " data-dismiss="modal" value="Cancel" />
-                </div>
-            </div>
-        </div>
     </div>
+
+    <footer class="bg-light">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <h5>Home</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Plans</a></li>
+                        <li><a href="#">Create a plan</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Track order</a></li>
+                        <li><a href="#">Delivery & Returns</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Contact us</h5>
+                    <address>
+                        Aarhus,Denmark<br>
+                        Klostertorvet 67<br>
+                        <abbr title="Phone">P:</abbr> +45 48590322<br>
+                        <abbr title="Email">E:</abbr> <a href="mailto:muesli@madness.dk">muesli@madness.dk</a>
+                    </address>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Follow us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Plans</a></li>
+                        <li><a href="#">Create a plan</a></li>
+                    </ul>
+                </div>
+
+            </div><!-- row end -->
+        </div><!-- container end  -->
+
+    </footer>
+
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -130,38 +137,23 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
-
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)*@
-
-    <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
     <script>
        /*     var showDiv = function (e) {
                 e.preventDefault();
                 $("#dvContents").show();
             }
-
             var hideDiv = function (e) {
                 e.preventDefault();
                 $("#dvContents").hide();
             }
-
             $("#btnAddToCart").click(function () {
                 $("#dvContents").toggle("fast", function () {
                     // Animation complete.
                 });
             })
-
             //$("#btnAddToCart").click(showDiv);
-            $("#continue-shopping").click(hideDiv); */
+            $("#continue-shopping").click(hideDiv);*/
     </script>
-
 
 </body>
 </html>

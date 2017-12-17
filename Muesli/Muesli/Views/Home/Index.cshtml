@@ -1,110 +1,198 @@
 ﻿
 @{
     ViewBag.Title = "Home";
+    Layout = null;
 }
 
-<div class="image1">
-    <img src="/Content/images/muesli.png" alt="muesli">
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="/images/ico.PNG" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    
+    <link type="text/css" rel="stylesheet" href="/Content/style.css" />
+    <title>home</title>
+</head>
+<body>
+    <div class="content">
+        <!--- navigation -->
+        <div class="navigation">
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Our Plans", "Ourplans", "Home")</li>
+                <li>@Html.ActionLink("Create a Plan", "Index", "Order")</li>
+                <li>
+                    @if (Session["Username"] != null)
+                    {
+                        <strong>@Html.ActionLink(Session["Username"].ToString(), "Account", "Account")</strong>
+                        <button class="button"style="margin:0;" data-toggle="modal" data-target="#exampleModal3">Sign Out</button>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Sign In", "Login", "Account", new { area = "" },  new { id = "button" })
+                    }
+                </li>
+            </ul>
+        </div>
 
-<h1 class="headline1">muesli</h1>
-<h2 class="headline2">madness</h2>
-
-<!--- morning routine -->
-<!--- square styling -->
-
-
-<a class="square" href="#routine"></a>
-
-<p class="wordone">morning</p>
-<p class="wordtwo">routine</p>
-
-
-<!--- square styling end -->
-
-<div class="image2">
-</div>
-
-<div id="routine">
-</div>
-
-<p class="text1">
-    All of us at least once in our lifetime have heard that 'breakfast is the most important meal of the day'.
-    So why don’t we make it more special? Why don’t we make it a ritual that we want to wake up to every morning.
-    Full of healthy, tasty and vitamin overfilled meal.
-    We kept asking ourselves that question till finally we came up with this- muesli madness space.
-    When ordering a plan from us you won’t miss a morning full of hygge feels and your personal morning ritual will be something that brightens up your whole day.
-</p>
-
-<!--- morning routine end -->
-<!--- healthy decisions -->
-<!--- square styling -->
-
-<a class="squaretwo" href="#decisions"></a>
-
-<p class="wordthree">healthy</p>
-<p class="wordfour">decisions</p>
-
-<!--- square styling end -->
-
-<div class="image4">
-</div>
-
-<div class="image5">
-</div>
-
-<div id="decisions">
-</div>
-
-<p class="text2">
-    Ut wisi enim ad minim veniam,
-    quis nostrud exerci tation ullamcorper
-    suscipit lobortis nisl ut aliquip ex ea
-    commodo consequat. Duis autem
-    eum iriure dolor in hendrerit vulputate
-    velit esse molestie consequat, vel
-    dolore eu feugiat nulla facilisis at
-    et vero eros et accumsan et
-    iusto odio blandit qui et.
-</p>
-<!--- healthy decisions end -->
-<!--- fast & delicious -->
-<!--- square styling -->
+        <!--- navigation end -->
 
 
-<a class="squarethree" href="#delicious"></a>
+        <img class="image1" src="/Content/images/muesli.png" alt="muesli">
 
-<p class="wordfive">fast&</p>
-<p class="wordsix">delicious</p>
+        <h1 class="headline1">muesli</h1>
+        <h2 class="headline2">madness</h2>
+        <!--- morning routine -->
+        <!--- square styling -->
 
-<!--- square styling end -->
 
-<div class="image7">
-</div>
+        <a class="square" href="#routine"></a>
+        <p class="wordone">morning</p>
+        <p class="wordtwo">routine</p>
 
-<div class="image8">
-</div>
+        <!--- square styling end -->
+        <div class="image2">
+        </div>
+        <div id="routine">
+        </div>
+        <p class="text1">
+            You have probably heard someone say <em>'breakfast is the most important meal of the day.'</em>
+            <br>So we were thinking, why don’t we make it a ritual that we want to wake up to every morning?
+            We kept asking ourselves that question till finally we came up with this- <em>muesli madness</em> space.
+            When ordering a plan from us you won’t miss a morning full of hygge feels and your personal morning ritual will be something that brightens up your whole day.
+        </p>
+        <!--- morning routine end -->
+        <!--- healthy decisions -->
+        <!--- square styling -->
+        <a class="squaretwo" href="#decisions"></a>
+        <p class="wordthree">healthy</p>
+        <p class="wordfour">decisions</p>
+        <!--- square styling end -->
 
-<div id="delicious">
-</div>
+        <div class="image4">
+        </div>
 
-<p class="text3">
-    Ut wisi enim ad minim veniam,
-    quis nostrud exerci tation ullamcorper
-    suscipit lobortis nisl ut aliquip ex ea
-    commodo consequat. Duis autem
-    eum iriure dolor in hendrerit vulputate
-    velit esse molestie consequat, vel
-    dolore eu feugiat nulla facilisis at
-    et vero eros et accumsan et
-    iusto odio blandit qui et.
-</p>
-<!--- fast & delicious end -->
-<!--- ready to order -->
+        <div class="image5">
+        </div>
+        <div id="decisions">
+        </div>
 
-<div class="rectangle"> </div>
+        <p class="text2">
+            If you are here because you are trying to find healthy
+            solutions for your daily meals and are thinking more about
+            your health and well being <em>Muesli Madness</em> is for you.
+            We offer healthy, low fat and vitamin full ingredients
+            that your body will love and enjoy.
 
-<p class="order"> Ready to order? </p>
+        </p>
+        <!--- healthy decisions end -->
+        <!--- fast & delicious -->
+        <!--- square styling -->
 
-<a href="#" id="ourp">Our Plans</a>
-<a href="#" id="createp">Create a Plan</a>
+        <a class="squarethree" href="#delicious"></a>
+
+        <p class="wordfive">fast&</p>
+        <p class="wordsix">delicious</p>
+
+        <!--- square styling end -->
+
+        <div class="image7">
+        </div>
+
+        <div class="image8">
+        </div>
+
+        <div id="delicious">
+        </div>
+
+        <p class="text3">
+            Your regular muesli breakfast is something you
+            can’t miss even in the very busy mornings,
+            because the preparation time takes literally 2-3 min. <br>
+            With your muesli madness plan you will be looking
+            forward to breakfast like never before.
+            Breakfast won’t be just a thing you ‘must’
+            do to keep healthy, it will be something you want
+            to do with our delicious and fresh ingredients.
+
+        </p>
+        <!--- fast & delicious end -->
+        <!--- ready to order -->
+
+        <div class="rectangle"> </div>
+        <p class="order"> Ready to order? </p>
+        <a href="#" id="ourp">Our Plans</a>
+        <a href="#" id="createp">Create a Plan</a>
+        <!--- ready to order end -->
+        <!--- footer -->
+        <h2 id="homefooter">Home</h2>
+        <div class="homef">
+            <ul>
+                <li> <a href="#">About</a></li>
+                <li> <a href="#">Our Plans</a></li>
+                <li> <a href="#">Create a Plan</a></li>
+            </ul>
+        </div>
+        <h2 id="servicesfooter">Services</h2>
+
+        <div class="servicesf">
+            <ul>
+                <li> <a href="#">Track order</a></li>
+                <li> <a href="#">Delivery & Returns</a></li>
+                <li> <a href="#">Shipping</a></li>
+                <li> <a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <h2 id="contactfooter">Contact us</h2>
+
+        <div class="contactf">
+            <p> +45 48590322 </p>
+            <p> muesli@madness.dk </p>
+            <p> Aarhus,Denmark </p>
+            <p> Klostertorvet 67 </p>
+
+        </div>
+        <h2 id="followfooter">Follow us</h2>
+
+        <div class="followf">
+
+            <a href="#"><img src="images/facebook.png" /></a>
+            <a href="#"><img src="images/instagram.png" /></a>
+
+        </div>
+        <!--- footer end -->
+    </div>
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to sign out? All items in cart will be deleted.
+                </div>
+                <div class="modal-footer">
+                    @Html.ActionLink("Sign Out", "Logout", "Account", new { area = "" } , new { @class = "button" })
+                    <input id="continue-shopping" class="button" data-dismiss="modal" value="Cancel" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+
+
